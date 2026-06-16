@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Pure monochrome system — black & white only */
+  --color-ink: #000000;        /* pure black — text, lines, fills */
+  --color-paper: #ffffff;      /* pure white — backgrounds */
+  --color-ash: #555555;        /* mid gray — secondary copy (still neutral) */
+  --color-smoke: #8a8a8a;      /* light gray — captions, muted */
+  --color-line: #e6e6e6;       /* hairline gray — borders */
+  --color-mist: #f4f4f4;       /* near-white — alt panels */
+
+  /* Silian Rail — elegant high-contrast display serif (American Psycho vibe) */
+  --font-silian: var(--font-cormorant), "Times New Roman", Georgia, serif;
+  /* Clean grotesque for body + UI */
+  --font-sans: var(--font-grotesk), -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ------------------------------------------------------------------ */
+/* Typography                                                          */
+/* ------------------------------------------------------------------ */
+
+/* Base element defaults live in @layer base so Tailwind utility classes
+   (text-paper, group-hover:text-paper, etc.) always override them. */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    color: #555555;
+  }
+}
+
+::selection {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Silian Rail display — used for large editorial headings */
+@utility font-display {
+  font-family: var(--font-silian);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Tight grotesque label — uppercase eyebrow text */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #8a8a8a;
+}
+
+/* Minimal monochrome scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border: 3px solid #ffffff;
+  border-radius: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Animation utilities                                                  */
+/* ------------------------------------------------------------------ */
+
+/* Infinite horizontal marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@utility animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+@utility animate-marquee-slow {
+  animation: marquee 60s linear infinite;
+}
+
+/* Slow continuous rotation */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@utility animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+/* Subtle floating */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Blinking caret / status dot */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.15; }
+}
+@utility animate-blink {
+  animation: blink 1.6s steps(2, start) infinite;
+}
+
+/* Film-grain overlay (monochrome noise) */
+@utility grain {
+  position: relative;
+}
+@utility grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+}
+
+/* Hover underline that wipes in */
+@utility link-wipe {
+  background-image: linear-gradient(#000, #000);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
