@@ -47,7 +47,7 @@ export function StrategyCall() {
           {/* Big circular CTA */}
           <div className="flex justify-start lg:col-span-4 lg:justify-end">
             <Reveal delay={0.1}>
-              <Link href="/#contact" aria-label="Book a strategy call">
+              <Link href="/#book" aria-label="Book a strategy call">
                 <motion.div
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}

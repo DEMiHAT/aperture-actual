@@ -8,6 +8,7 @@ import { StartProjectButton } from '@/components/ui/StartProject';
 
 const links = [
   { name: 'Services', href: '#services' },
+  { name: 'Industries', href: '/industries' },
   { name: 'Ecosystem', href: '#ecosystem' },
   { name: 'Process', href: '#process' },
   { name: 'Work', href: '#work' },

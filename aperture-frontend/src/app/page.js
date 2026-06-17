@@ -7,6 +7,7 @@ import { Services } from "@/components/sections/Services";
 import { Process } from "@/components/sections/Process";
 import { Portfolio } from "@/components/sections/Portfolio";
 import { FAQ } from "@/components/sections/FAQ";
+import { CalendlyEmbed } from "@/components/sections/CalendlyEmbed";
 import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <Process />
       <Portfolio />
       <FAQ />
+      <CalendlyEmbed />
       <Contact />
     </>
   );

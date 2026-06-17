@@ -1,17 +1,17 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Phone, Mail, ArrowUpRight } from 'lucide-react';
+import { X, Phone, Mail, ArrowUpRight, MessageCircle } from 'lucide-react';
 import { cn } from '@/components/ui/Button';
 import { site } from '@/lib/site';
 
 const PHONE = site.phone.display;
 const PHONE_HREF = `tel:${site.phone.display.replace(/\s+/g, '')}`;
-const EMAIL = site.email.general;
-const EMAIL_HREF = `mailto:${site.email.general}`;
+const EMAIL_HELLO = site.email.general;
+const EMAIL_CONTACT = site.email.projects;
+const WHATSAPP_HREF = site.phone.whatsapp;
 
 const sizes = {
   sm: 'px-5 py-2 text-xs',
@@ -19,10 +19,6 @@ const sizes = {
   lg: 'px-9 py-4 text-sm',
 };
 
-/**
- * StartProjectButton — a plain, static button (no hover-wipe, no magnetic
- * motion) that opens the popup on click.
- */
 export function StartProjectButton({ size = 'md', className, label = 'Start a Project' }) {
   const [open, setOpen] = useState(false);
 
@@ -58,9 +54,7 @@ export function StartProjectModal({ open, onClose }) {
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
 
-  if (typeof document === 'undefined') return null;
-
-  return createPortal(
+  return (
     <AnimatePresence>
       {open && (
         <motion.div
@@ -123,20 +117,41 @@ export function StartProjectModal({ open, onClose }) {
                   </span>
                 </a>
                 <a
-                  href={EMAIL_HREF}
+                  href={`mailto:${EMAIL_CONTACT}`}
                   className="group flex flex-col gap-2 bg-paper p-5 transition-colors hover:bg-ink"
                 >
                   <span className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-smoke transition-colors group-hover:text-paper/60">
                     <Mail className="h-3.5 w-3.5" /> Email us
                   </span>
                   <span className="break-all text-lg font-medium text-ink transition-colors group-hover:text-paper">
-                    {EMAIL}
+                    {EMAIL_CONTACT}
+                  </span>
+                </a>
+                <a
+                  href={WHATSAPP_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col gap-2 bg-paper p-5 transition-colors hover:bg-ink sm:col-span-2"
+                >
+                  <span className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-smoke transition-colors group-hover:text-paper/60">
+                    <MessageCircle className="h-3.5 w-3.5" /> WhatsApp Business
+                  </span>
+                  <span className="text-lg font-medium text-ink transition-colors group-hover:text-paper">
+                    Chat with us instantly → wa.me/919003472654
                   </span>
                 </a>
               </div>
 
+              {/* General enquiries */}
+              <p className="mt-4 text-xs text-smoke">
+                General enquiries:{' '}
+                <a href={`mailto:${EMAIL_HELLO}`} className="text-ink underline hover:no-underline">
+                  {EMAIL_HELLO}
+                </a>
+              </p>
+
               {/* Book a call */}
-              <Link href="/#book" onClick={onClose} className="mt-4 block">
+              <Link href="/#strategy-call" onClick={onClose} className="mt-4 block">
                 <button className="group flex w-full items-center justify-between rounded-full bg-ink px-7 py-4 text-paper">
                   <span className="text-sm font-medium uppercase tracking-[0.12em]">
                     Book a strategy call
@@ -148,7 +163,6 @@ export function StartProjectModal({ open, onClose }) {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>,
-    document.body
+    </AnimatePresence>
   );
 }
