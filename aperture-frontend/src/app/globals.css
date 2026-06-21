@@ -12,6 +12,20 @@
   --color-line: #e6e6e6;       /* hairline gray — borders */
   --color-mist: #f4f4f4;       /* near-white — alt panels */
 
+  /* ----------------------------------------------------------------- */
+  /* Aperture Moments — warm "memories" palette (only used inside the   */
+  /* Moments portal experience; the core site stays monochrome)         */
+  /* ----------------------------------------------------------------- */
+  --color-cream: #fff8ef;      /* warm paper — Moments background */
+  --color-honey: #fde8c4;      /* soft honey panel */
+  --color-gold: #e6a532;       /* warm gold — primary accent */
+  --color-amber: #f59e42;      /* amber */
+  --color-sunset: #f4754b;     /* sunset orange */
+  --color-blush: #f7a8b8;      /* gentle pink */
+  --color-rose: #ef6f8e;       /* deeper rose */
+  --color-cocoa: #5b3b22;      /* warm dark brown — Moments text */
+  --color-cocoa-soft: #8a6a4f; /* warm secondary copy */
+
   /* Silian Rail — elegant high-contrast display serif (American Psycho vibe) */
   --font-silian: var(--font-cormorant), "Times New Roman", Georgia, serif;
   /* Clean grotesque for body + UI */
@@ -152,4 +166,110 @@ body {
   background-position: 0 100%;
   background-repeat: no-repeat;
   transition: background-size 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ================================================================== */
+/* Aperture Moments — warm portal utilities & keyframes               */
+/* ================================================================== */
+
+/* Warm frosted "liquid glass" panel */
+@utility liquid-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 248, 239, 0.65),
+    rgba(253, 232, 196, 0.35)
+  );
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 8px 40px -12px rgba(230, 165, 50, 0.35),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Soft warm glow halo */
+@utility warm-glow {
+  box-shadow:
+    0 10px 50px -10px rgba(244, 117, 75, 0.45),
+    0 0 0 1px rgba(230, 165, 50, 0.15);
+}
+
+/* Animated text gradient (gold → sunset → rose) */
+@utility text-warm-gradient {
+  background-image: linear-gradient(100deg, #e6a532, #f4754b 45%, #ef6f8e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Bokeh blur orb base */
+@utility bokeh {
+  border-radius: 9999px;
+  filter: blur(8px);
+  mix-blend-mode: screen;
+}
+
+/* Soft diagonal light ray */
+@utility light-ray {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 236, 200, 0.55),
+    rgba(255, 236, 200, 0)
+  );
+  filter: blur(6px);
+}
+
+/* Drifting particle — gentle upward float with horizontal sway */
+@keyframes moment-drift {
+  0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(-120px) translateX(24px) scale(1.15); opacity: 0; }
+}
+@utility animate-drift {
+  animation: moment-drift 9s ease-in-out infinite;
+}
+
+/* Slow pulsing glow for bokeh orbs */
+@keyframes moment-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%      { opacity: 0.7; transform: scale(1.12); }
+}
+@utility animate-glow-pulse {
+  animation: moment-pulse 7s ease-in-out infinite;
+}
+
+/* Shimmering sweep (used on liquid-glass buttons) */
+@keyframes moment-shimmer {
+  from { transform: translateX(-120%) skewX(-12deg); }
+  to   { transform: translateX(220%) skewX(-12deg); }
+}
+@utility animate-shimmer {
+  animation: moment-shimmer 4.5s ease-in-out infinite;
+}
+
+/* Click ripple for liquid-glass buttons */
+@keyframes moment-ripple {
+  from { width: 8px; height: 8px; opacity: 0.55; }
+  to   { width: 320px; height: 320px; opacity: 0; }
+}
+
+/* Slow background gradient drift for the cinematic sections */
+@keyframes moment-aurora {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@utility animate-aurora {
+  background-size: 220% 220%;
+  animation: moment-aurora 18s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-drift,
+  .animate-glow-pulse,
+  .animate-shimmer,
+  .animate-aurora {
+    animation: none !important;
+  }
 }

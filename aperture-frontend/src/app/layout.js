@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { Analytics } from "@/components/ui/Analytics";
+import { MomentsRoot } from "@/components/moments/MomentsRoot";
 import { site } from "@/lib/site";
 
 // Silian Rail — elegant high-contrast display serif
@@ -68,9 +69,11 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
         <ScrollProgress />
-        <Navbar />
-        <main className="flex-1 flex flex-col relative z-10">{children}</main>
-        <Footer />
+        <MomentsRoot>
+          <Navbar />
+          <main className="flex-1 flex flex-col relative z-10">{children}</main>
+          <Footer />
+        </MomentsRoot>
         <CookieConsent />
         <Analytics />
       </body>
