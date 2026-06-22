@@ -285,7 +285,14 @@ function buildClientHtml(type, fields, config) {
                     <tr>
                       <td style="padding-bottom:12px">
                         <a href="https://wa.me/919003472654" target="_blank" style="display:block;text-decoration:none;border:1px solid #25d366;border-radius:6px;padding:12px 16px;background-color:#f4fbf6;color:#128c7e;font-size:14px;font-weight:500;text-align:center">
-                          💬 Connect via WhatsApp Business &rarr;
+                          💬 WhatsApp (Primary: +91 90034 72654) &rarr;
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding-bottom:12px">
+                        <a href="https://wa.me/918610213489" target="_blank" style="display:block;text-decoration:none;border:1px solid #25d366;border-radius:6px;padding:12px 16px;background-color:#f4fbf6;color:#128c7e;font-size:14px;font-weight:500;text-align:center">
+                          💬 WhatsApp (Secondary: +91 86102 13489) &rarr;
                         </a>
                       </td>
                     </tr>
@@ -353,5 +360,5 @@ function buildClientText(type, fields, config) {
     .map((key) => `${LABELS[key] || key}: ${fields[key]}`)
     .join('\n');
 
-  return `${heading}\n\n${intro}\n\nSubmitted Details:\n${details}\n\nContact us on WhatsApp: https://wa.me/919003472654\nWebsite: https://aperturewebs.co.in`;
+  return `${heading}\n\n${intro}\n\nSubmitted Details:\n${details}\n\nContact us on WhatsApp:\n- Primary: https://wa.me/919003472654\n- Secondary: https://wa.me/918610213489\n\nWebsite: https://aperturewebs.co.in`;
 }

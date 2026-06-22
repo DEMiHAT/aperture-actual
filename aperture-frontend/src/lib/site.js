@@ -13,8 +13,16 @@ export const site = {
   },
 
   phone: {
-    display: '+91 9003472654',
+    display: '+91 9003472654 / +91 8610213489',
     whatsapp: 'https://wa.me/919003472654',
+    primary: {
+      display: '+91 9003472654',
+      whatsapp: 'https://wa.me/919003472654',
+    },
+    secondary: {
+      display: '+91 8610213489',
+      whatsapp: 'https://wa.me/918610213489',
+    },
   },
 
   location: 'Chennai, Tamil Nadu, India',

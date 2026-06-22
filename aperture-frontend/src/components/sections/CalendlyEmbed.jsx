@@ -76,21 +76,30 @@ export function CalendlyEmbed() {
                   </span>
                   <ArrowUpRight className="mt-2 h-5 w-5 text-smoke transition-all group-hover:rotate-45 group-hover:text-paper" />
                 </a>
-                <a
-                  href={site.phone.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex flex-col gap-3 bg-paper p-8 transition-colors hover:bg-ink md:p-10"
-                >
+                <div className="group flex flex-col gap-3 bg-paper p-8 transition-colors hover:bg-ink md:p-10">
                   <MessageCircle className="h-6 w-6 text-ink transition-colors group-hover:text-paper" />
                   <span className="font-display text-2xl font-medium text-ink transition-colors group-hover:text-paper md:text-3xl">
                     WhatsApp Business
                   </span>
-                  <span className="text-sm text-ash transition-colors group-hover:text-paper/70">
-                    {site.phone.display}
-                  </span>
-                  <ArrowUpRight className="mt-2 h-5 w-5 text-smoke transition-all group-hover:rotate-45 group-hover:text-paper" />
-                </a>
+                  <div className="mt-2 flex flex-col gap-2">
+                    <a
+                      href={site.phone.primary.whatsapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-ash transition-colors hover:underline group-hover:text-paper/70 group-hover:hover:text-paper"
+                    >
+                      Chat: {site.phone.primary.display}
+                    </a>
+                    <a
+                      href={site.phone.secondary.whatsapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-ash transition-colors hover:underline group-hover:text-paper/70 group-hover:hover:text-paper"
+                    >
+                      Chat: {site.phone.secondary.display}
+                    </a>
+                  </div>
+                </div>
               </div>
             </Reveal>
           </>

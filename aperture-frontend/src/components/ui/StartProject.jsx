@@ -111,17 +111,19 @@ export function StartProjectModal({ open, onClose }) {
 
               {/* Contact options */}
               <div className="mt-8 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2">
-                <a
-                  href={PHONE_HREF}
-                  className="group flex flex-col gap-2 bg-paper p-5 transition-colors hover:bg-ink"
-                >
+                <div className="group flex flex-col gap-2 bg-paper p-5 transition-colors hover:bg-ink">
                   <span className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-smoke transition-colors group-hover:text-paper/60">
                     <Phone className="h-3.5 w-3.5" /> Call us
                   </span>
-                  <span className="text-lg font-medium text-ink transition-colors group-hover:text-paper">
-                    {PHONE}
-                  </span>
-                </a>
+                  <div className="flex flex-col gap-1">
+                    <a href={`tel:${site.phone.primary.display.replace(/\s+/g, '')}`} className="text-base font-medium text-ink transition-colors hover:underline group-hover:text-paper">
+                      {site.phone.primary.display}
+                    </a>
+                    <a href={`tel:${site.phone.secondary.display.replace(/\s+/g, '')}`} className="text-base font-medium text-ink transition-colors hover:underline group-hover:text-paper">
+                      {site.phone.secondary.display}
+                    </a>
+                  </div>
+                </div>
                 <a
                   href={EMAIL_HREF}
                   className="group flex flex-col gap-2 bg-paper p-5 transition-colors hover:bg-ink"
@@ -129,7 +131,7 @@ export function StartProjectModal({ open, onClose }) {
                   <span className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-smoke transition-colors group-hover:text-paper/60">
                     <Mail className="h-3.5 w-3.5" /> Email us
                   </span>
-                  <span className="break-all text-lg font-medium text-ink transition-colors group-hover:text-paper">
+                  <span className="break-all text-base font-medium text-ink transition-colors group-hover:text-paper">
                     {EMAIL}
                   </span>
                 </a>
