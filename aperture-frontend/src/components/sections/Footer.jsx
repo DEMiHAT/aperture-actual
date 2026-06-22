@@ -16,7 +16,7 @@ const footerLinks = {
     { name: 'About Us', href: '#about' },
     { name: 'Our Work', href: '#work' },
     { name: "Founder's Note", href: '#team' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Book a Call', href: '#book' },
   ],
   legal: [
     { name: 'Privacy Policy', href: '#' },

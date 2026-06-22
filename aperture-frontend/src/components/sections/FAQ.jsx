@@ -48,10 +48,10 @@ export function FAQ() {
               />
               <Reveal delay={0.2} className="mt-8">
                 <a
-                  href="#contact"
+                  href="#book"
                   className="link-wipe hover:bg-[length:100%_1px] text-lg text-ink"
                 >
-                  Still have questions? Contact us →
+                  Still have questions? Book a call →
                 </a>
               </Reveal>
             </div>

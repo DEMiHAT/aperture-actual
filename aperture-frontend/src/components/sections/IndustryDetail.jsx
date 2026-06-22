@@ -130,7 +130,7 @@ export function IndustryDetail({ industry, index, next }) {
             <h2 className="max-w-2xl font-display text-4xl font-medium leading-tight text-ink md:text-6xl">
               Building something in {industry.title.toLowerCase()}?
             </h2>
-            <Link href="/#contact">
+            <Link href="/#book">
               <Button size="lg">Start a Project</Button>
             </Link>
           </Reveal>

@@ -8,7 +8,6 @@ import { Process } from "@/components/sections/Process";
 import { Portfolio } from "@/components/sections/Portfolio";
 import { FAQ } from "@/components/sections/FAQ";
 import { CalendlyEmbed } from "@/components/sections/CalendlyEmbed";
-import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
@@ -23,7 +22,7 @@ export default function Home() {
       <Portfolio />
       <FAQ />
       <CalendlyEmbed />
-      <Contact />
     </>
   );
 }
+

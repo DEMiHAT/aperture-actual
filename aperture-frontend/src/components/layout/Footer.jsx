@@ -41,7 +41,7 @@ const footerLinks = {
     { name: 'Industries', href: '/industries' },
     { name: 'Our Work', href: '#work' },
     { name: "Founder's Note", href: '#team' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Book a Call', href: '#book' },
   ],
   legal: [
     { name: 'Privacy Policy', href: '/privacy' },
