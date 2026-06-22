@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useMomentsScroll } from './useMomentsScroll';
 import { MomentsParticles } from './MomentsParticles';
 import { MomentsNav } from './MomentsNav';
+import { MomentsRegister } from './MomentsRegister';
 import { Hero } from './sections/Hero';
 import { StoryPolaroids } from './sections/StoryPolaroids';
 import { Timeline } from './sections/Timeline';
@@ -27,6 +28,7 @@ export function MomentsExperience() {
   const wrapperRef = useRef(null);
   const contentRef = useRef(null);
   const { ready } = useMomentsScroll(wrapperRef, contentRef);
+  const [registerOpen, setRegisterOpen] = useState(false);
 
   // CTA helpers — scroll the user to the relevant section.
   const scrollTo = useCallback((selector) => {
@@ -34,7 +36,8 @@ export function MomentsExperience() {
     el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, []);
 
-  const onCreate = useCallback(() => scrollTo('#moments-pricing'), [scrollTo]);
+  // "Create A Memory" opens the registration modal; "View Experiences" scrolls.
+  const onCreate = useCallback(() => setRegisterOpen(true), []);
   const onExplore = useCallback(() => scrollTo('#moments-timeline'), [scrollTo]);
 
   return (
@@ -91,6 +94,8 @@ export function MomentsExperience() {
           <FinalCTA onCreate={onCreate} />
         </div>
       </div>
+
+      <MomentsRegister open={registerOpen} onClose={() => setRegisterOpen(false)} />
     </motion.div>
   );
 }

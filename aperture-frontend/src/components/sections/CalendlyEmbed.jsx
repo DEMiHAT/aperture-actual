@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import { ArrowUpRight, Mail, MessageCircle } from 'lucide-react';
 import { Reveal, AnimatedHeading } from '@/components/ui/Motion';
+import { StrategyCallForm } from '@/components/forms/StrategyCallForm';
 import { site } from '@/lib/site';
 
 /**
@@ -55,38 +56,44 @@ export function CalendlyEmbed() {
             />
           </Reveal>
         ) : (
-          <Reveal>
-            <div className="grid grid-cols-1 gap-px border border-line bg-line md:grid-cols-2">
-              <a
-                href={`mailto:${site.email.general}`}
-                className="group flex flex-col gap-3 bg-paper p-8 transition-colors hover:bg-ink md:p-10"
-              >
-                <Mail className="h-6 w-6 text-ink transition-colors group-hover:text-paper" />
-                <span className="font-display text-2xl font-medium text-ink transition-colors group-hover:text-paper md:text-3xl">
-                  Email us
-                </span>
-                <span className="text-sm text-ash transition-colors group-hover:text-paper/70">
-                  {site.email.general}
-                </span>
-                <ArrowUpRight className="mt-2 h-5 w-5 text-smoke transition-all group-hover:rotate-45 group-hover:text-paper" />
-              </a>
-              <a
-                href={site.phone.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col gap-3 bg-paper p-8 transition-colors hover:bg-ink md:p-10"
-              >
-                <MessageCircle className="h-6 w-6 text-ink transition-colors group-hover:text-paper" />
-                <span className="font-display text-2xl font-medium text-ink transition-colors group-hover:text-paper md:text-3xl">
-                  WhatsApp Business
-                </span>
-                <span className="text-sm text-ash transition-colors group-hover:text-paper/70">
-                  {site.phone.display}
-                </span>
-                <ArrowUpRight className="mt-2 h-5 w-5 text-smoke transition-all group-hover:rotate-45 group-hover:text-paper" />
-              </a>
-            </div>
-          </Reveal>
+          <>
+            {/* Booking form — emails the team directly */}
+            <StrategyCallForm />
+
+            {/* Or reach us directly */}
+            <Reveal className="mt-px">
+              <div className="grid grid-cols-1 gap-px border border-line bg-line md:grid-cols-2">
+                <a
+                  href={`mailto:${site.email.general}`}
+                  className="group flex flex-col gap-3 bg-paper p-8 transition-colors hover:bg-ink md:p-10"
+                >
+                  <Mail className="h-6 w-6 text-ink transition-colors group-hover:text-paper" />
+                  <span className="font-display text-2xl font-medium text-ink transition-colors group-hover:text-paper md:text-3xl">
+                    Email us
+                  </span>
+                  <span className="text-sm text-ash transition-colors group-hover:text-paper/70">
+                    {site.email.general}
+                  </span>
+                  <ArrowUpRight className="mt-2 h-5 w-5 text-smoke transition-all group-hover:rotate-45 group-hover:text-paper" />
+                </a>
+                <a
+                  href={site.phone.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col gap-3 bg-paper p-8 transition-colors hover:bg-ink md:p-10"
+                >
+                  <MessageCircle className="h-6 w-6 text-ink transition-colors group-hover:text-paper" />
+                  <span className="font-display text-2xl font-medium text-ink transition-colors group-hover:text-paper md:text-3xl">
+                    WhatsApp Business
+                  </span>
+                  <span className="text-sm text-ash transition-colors group-hover:text-paper/70">
+                    {site.phone.display}
+                  </span>
+                  <ArrowUpRight className="mt-2 h-5 w-5 text-smoke transition-all group-hover:rotate-45 group-hover:text-paper" />
+                </a>
+              </div>
+            </Reveal>
+          </>
         )}
       </div>
     </section>
