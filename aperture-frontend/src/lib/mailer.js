@@ -36,16 +36,16 @@ export function getTransporter() {
 }
 
 /**
- * Sends a notification email. `replyTo` lets you hit "reply" in Gmail and
- * respond straight to the person who submitted the form.
+ * Sends any email via the transporter, with console log fallback.
  */
-export async function sendNotification({ subject, html, text, replyTo }) {
+export async function sendMail({ to, subject, html, text, replyTo }) {
   const user = process.env.GMAIL_USER;
   const pass = process.env.GMAIL_APP_PASSWORD;
+  const destination = to || NOTIFY_TO;
 
   if (!user || !pass) {
     console.log('\n✉️  [Mailer Fallback Mode] Sending Email:');
-    console.log(`To:       ${NOTIFY_TO}`);
+    console.log(`To:       ${destination}`);
     console.log(`Reply-To: ${replyTo || 'None'}`);
     console.log(`Subject:  ${subject}`);
     console.log('--------------------------------------------------');
@@ -56,7 +56,20 @@ export async function sendNotification({ subject, html, text, replyTo }) {
 
   const transporter = getTransporter();
   return transporter.sendMail({
-    from: `"Aperture Website" <${user}>`,
+    from: `"Aperture" <${user}>`,
+    to: destination,
+    subject,
+    text,
+    html,
+    replyTo,
+  });
+}
+
+/**
+ * Sends a notification email to the admin team.
+ */
+export async function sendNotification({ subject, html, text, replyTo }) {
+  return sendMail({
     to: NOTIFY_TO,
     subject,
     text,
