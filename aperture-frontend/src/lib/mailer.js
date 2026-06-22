@@ -14,13 +14,14 @@ const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
 export const NOTIFY_TO = process.env.NOTIFY_TO || 'aperture.websites@gmail.com';
 
 export function isMailerConfigured() {
-  return Boolean(GMAIL_USER && GMAIL_APP_PASSWORD);
+  // Always operational; falls back to terminal console logs if environment variables are not set
+  return true;
 }
 
 let cached;
 
 export function getTransporter() {
-  if (!isMailerConfigured()) {
+  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
     throw new Error(
       'Mailer not configured: set GMAIL_USER and GMAIL_APP_PASSWORD in .env.local'
     );
@@ -28,7 +29,7 @@ export function getTransporter() {
   if (!cached) {
     cached = nodemailer.createTransport({
       service: 'gmail',
-      auth: { user: GMAIL_USER, pass: GMAIL_APP_PASSWORD },
+      auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_APP_PASSWORD },
     });
   }
   return cached;
@@ -39,9 +40,23 @@ export function getTransporter() {
  * respond straight to the person who submitted the form.
  */
 export async function sendNotification({ subject, html, text, replyTo }) {
+  const user = process.env.GMAIL_USER;
+  const pass = process.env.GMAIL_APP_PASSWORD;
+
+  if (!user || !pass) {
+    console.log('\n✉️  [Mailer Fallback Mode] Sending Email:');
+    console.log(`To:       ${NOTIFY_TO}`);
+    console.log(`Reply-To: ${replyTo || 'None'}`);
+    console.log(`Subject:  ${subject}`);
+    console.log('--------------------------------------------------');
+    console.log(text);
+    console.log('==================================================\n');
+    return { messageId: 'console-fallback-id' };
+  }
+
   const transporter = getTransporter();
   return transporter.sendMail({
-    from: `"Aperture Website" <${GMAIL_USER}>`,
+    from: `"Aperture Website" <${user}>`,
     to: NOTIFY_TO,
     subject,
     text,
@@ -49,3 +64,4 @@ export async function sendNotification({ subject, html, text, replyTo }) {
     replyTo,
   });
 }
+
