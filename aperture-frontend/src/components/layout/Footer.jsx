@@ -40,7 +40,6 @@ const footerLinks = {
     { name: 'About Us', href: '#about' },
     { name: 'Industries', href: '/industries' },
     { name: 'Our Work', href: '#work' },
-    { name: "Founder's Note", href: '#team' },
     { name: 'Book a Call', href: '#book' },
   ],
   legal: [

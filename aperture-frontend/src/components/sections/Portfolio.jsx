@@ -6,21 +6,22 @@ import { ArrowUpRight, X, Check, TrendingUp, Users, Clock, Zap } from 'lucide-re
 import { Reveal, AnimatedHeading } from '@/components/ui/Motion';
 
 // Animated counter component for premium stats
-function AnimatedCounter({ value, isHovered }) {
+function AnimatedCounter({ value }) {
   const [displayValue, setDisplayValue] = useState('');
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const match = value.toString().match(/^([\d.,]+)(.*)$/);
-  const number = match ? parseFloat(match[1].replace(/,/g, '')) : 0;
-  const suffix = match ? match[2] : '';
-
   useEffect(() => {
+    const match = value.toString().match(/^([\d.,]+)(.*)$/);
     if (!match) {
       setDisplayValue(value);
       return;
     }
-    if (!isInView && !isHovered) return;
+
+    const number = parseFloat(match[1].replace(/,/g, ''));
+    const suffix = match[2];
+
+    if (!isInView) return;
     
     const duration = 1.2;
     let startTime = null;
@@ -42,7 +43,7 @@ function AnimatedCounter({ value, isHovered }) {
 
     frameId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(frameId);
-  }, [isInView, isHovered, number, suffix, value, match]);
+  }, [isInView, value]);
 
   return <span ref={ref}>{displayValue || value}</span>;
 }
@@ -510,7 +511,7 @@ export function Portfolio() {
                     {project.featuredMetric && (
                       <div className="mt-6 flex items-baseline gap-2 border-t border-line/50 pt-4 transition-colors duration-500 group-hover:border-paper/10">
                         <span className="font-display text-3xl font-medium text-ink transition-colors duration-500 group-hover:text-paper">
-                          <AnimatedCounter value={project.featuredMetric.value} isHovered={isHovered === project.title} />
+                          <AnimatedCounter value={project.featuredMetric.value} />
                         </span>
                         <span className="text-[10px] uppercase tracking-[0.15em] text-smoke transition-colors duration-500 group-hover:text-paper/60 font-mono">
                           {project.featuredMetric.label}
@@ -573,7 +574,7 @@ function ProjectModal({ project, onClose }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 max-h-[92vh] w-full overflow-y-auto border border-line bg-paper md:max-w-3xl"
+            className="relative z-10 max-h-[92vh] w-full overflow-y-auto border border-line bg-paper md:max-w-5xl"
           >
             {/* Sticky header */}
             <div className="sticky top-0 z-10 flex items-center justify-between border-b border-line bg-paper/90 px-6 py-4 backdrop-blur-md md:px-10">

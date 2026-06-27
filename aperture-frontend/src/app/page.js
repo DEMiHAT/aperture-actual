@@ -1,7 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { StrategyCall } from "@/components/sections/StrategyCall";
 import { About } from "@/components/sections/About";
-import { Team } from "@/components/sections/Team";
 import { Ecosystem } from "@/components/sections/Ecosystem";
 import { Services } from "@/components/sections/Services";
 import { Process } from "@/components/sections/Process";
@@ -15,7 +14,6 @@ export default function Home() {
       <Hero />
       <StrategyCall />
       <About />
-      <Team />
       <Ecosystem />
       <Services />
       <Process />
