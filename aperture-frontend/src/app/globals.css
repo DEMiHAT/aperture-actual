@@ -273,3 +273,36 @@ body {
     animation: none !important;
   }
 }
+
+/* ================================================================== */
+/* Aperture Personal — warm range slider (Memory Time Machine, etc.)  */
+/* Additive only: scoped to .memory-range, used inside Personal mode.  */
+/* ================================================================== */
+.memory-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #e6a532, #f4754b, #ef6f8e);
+  outline: none;
+}
+.memory-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #fff8ef;
+  border: 3px solid #f4754b;
+  box-shadow: 0 4px 14px -4px rgba(244, 117, 75, 0.7);
+  cursor: grab;
+}
+.memory-range::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #fff8ef;
+  border: 3px solid #f4754b;
+  box-shadow: 0 4px 14px -4px rgba(244, 117, 75, 0.7);
+  cursor: grab;
+}

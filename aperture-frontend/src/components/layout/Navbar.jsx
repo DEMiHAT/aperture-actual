@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sparkles } from 'lucide-react';
 import { StartProjectButton } from '@/components/ui/StartProject';
 import { useMoments } from '@/components/moments/MomentsProvider';
+import { ModeToggle } from '@/components/personal/ModeToggle';
 
 const links = [
   { name: 'Services', href: '#services' },
@@ -75,8 +76,9 @@ export function Navbar() {
               </button>
             </nav>
 
-            {/* Desktop CTA */}
-            <div className="hidden items-center md:flex">
+            {/* Desktop CTA + Mode switch */}
+            <div className="hidden items-center gap-5 md:flex">
+              <ModeToggle variant="enterprise" />
               <StartProjectButton size="sm" label="Start Project" />
             </div>
 
@@ -103,6 +105,14 @@ export function Navbar() {
             className="overflow-hidden border-b border-line bg-paper md:hidden"
           >
             <div className="container mx-auto flex flex-col gap-1 px-6 py-6">
+              {/* Mode switch — full width, top of mobile menu */}
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-4 flex justify-center border-b border-line pb-6"
+              >
+                <ModeToggle variant="enterprise" size="md" />
+              </motion.div>
               {links.map((link, i) => (
                 <motion.div
                   key={link.name}

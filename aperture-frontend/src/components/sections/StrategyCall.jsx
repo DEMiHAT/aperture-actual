@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Reveal, AnimatedHeading, Marquee } from '@/components/ui/Motion';
+import { useConsultation } from '@/components/personal/ConsultationProvider';
 
 const perks = [
   'Free 30-minute consultation',
@@ -13,6 +13,7 @@ const perks = [
 ];
 
 export function StrategyCall() {
+  const { open: openConsultation } = useConsultation();
   return (
     <section
       id="strategy-call"
@@ -47,7 +48,11 @@ export function StrategyCall() {
           {/* Big circular CTA */}
           <div className="flex justify-start lg:col-span-4 lg:justify-end">
             <Reveal delay={0.1}>
-              <Link href="/#book" aria-label="Book a strategy call">
+              <button
+                type="button"
+                onClick={openConsultation}
+                aria-label="Book a strategy call"
+              >
                 <motion.div
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
@@ -59,7 +64,7 @@ export function StrategyCall() {
                   </span>
                   <ArrowUpRight className="h-12 w-12 text-paper transition-transform duration-500 group-hover:rotate-45" />
                 </motion.div>
-              </Link>
+              </button>
             </Reveal>
           </div>
         </div>

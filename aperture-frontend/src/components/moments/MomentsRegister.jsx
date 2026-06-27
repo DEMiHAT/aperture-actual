@@ -43,6 +43,7 @@ export function MomentsRegister({ open, onClose }) {
   // Reset to a clean form each time the modal opens.
   useEffect(() => {
     if (open) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setValues(EMPTY);
       setHoneypot('');
       reset();

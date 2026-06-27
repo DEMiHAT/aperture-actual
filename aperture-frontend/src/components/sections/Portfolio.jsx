@@ -14,6 +14,7 @@ function AnimatedCounter({ value }) {
   useEffect(() => {
     const match = value.toString().match(/^([\d.,]+)(.*)$/);
     if (!match) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDisplayValue(value);
       return;
     }

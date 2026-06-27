@@ -39,6 +39,7 @@ export function MomentsProvider({ children }) {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const isMoments = window.location.pathname.startsWith(MOMENTS_PATH);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setActive(isMoments);
     if (!isMoments) setReturnPath(window.location.pathname + window.location.search);
   }, []);

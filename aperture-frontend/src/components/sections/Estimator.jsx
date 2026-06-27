@@ -51,6 +51,7 @@ export function Estimator() {
     const min = Math.round((baseBudget * multiplier) / 5000) * 5000;
     const max = Math.round((baseBudget * multiplier * 1.4) / 5000) * 5000;
     
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setBudgetRange({ min, max });
   }, [selections]);
 

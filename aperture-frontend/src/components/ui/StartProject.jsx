@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Phone, Mail, ArrowUpRight } from 'lucide-react';
 import { cn } from '@/components/ui/Button';
 import { site } from '@/lib/site';
+import { useConsultation } from '@/components/personal/ConsultationProvider';
 
 const PHONE = site.phone.display;
 const PHONE_HREF = `tel:${site.phone.display.replace(/\s+/g, '')}`;
@@ -45,6 +45,8 @@ export function StartProjectButton({ size = 'md', className, label = 'Start a Pr
 }
 
 export function StartProjectModal({ open, onClose }) {
+  const { open: openConsultation } = useConsultation();
+
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => {
@@ -137,15 +139,19 @@ export function StartProjectModal({ open, onClose }) {
                 </a>
               </div>
 
-              {/* Book a call */}
-              <Link href="/#book" onClick={onClose} className="mt-4 block">
-                <button className="group flex w-full items-center justify-between rounded-full bg-ink px-7 py-4 text-paper">
-                  <span className="text-sm font-medium uppercase tracking-[0.12em]">
-                    Book a strategy call
-                  </span>
-                  <ArrowUpRight className="h-5 w-5 transition-transform duration-500 group-hover:rotate-45" />
-                </button>
-              </Link>
+              {/* Book a call — opens the consultation chooser */}
+              <button
+                onClick={() => {
+                  onClose();
+                  openConsultation();
+                }}
+                className="group mt-4 flex w-full items-center justify-between rounded-full bg-ink px-7 py-4 text-paper"
+              >
+                <span className="text-sm font-medium uppercase tracking-[0.12em]">
+                  Book a strategy call
+                </span>
+                <ArrowUpRight className="h-5 w-5 transition-transform duration-500 group-hover:rotate-45" />
+              </button>
             </div>
           </motion.div>
         </motion.div>
