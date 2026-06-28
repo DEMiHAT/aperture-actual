@@ -50,23 +50,23 @@ export function EventsShowcase() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.7, delay: (i % 2) * 0.1, ease: EASE }}
               whileHover={{ y: -6 }}
-              className="group relative overflow-hidden rounded-2xl liquid-glass p-8"
+              className="group relative overflow-hidden rounded-2xl dark-glass p-8"
             >
               <div
                 className={`pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-gradient-to-br ${e.tone} opacity-50 blur-2xl transition-opacity duration-500 group-hover:opacity-90`}
               />
-              <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-white/60 text-sunset">
+              <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-white/[0.08] text-sunset">
                 <e.icon className="h-5 w-5" />
               </span>
-              <h3 className="relative mt-6 font-display text-3xl font-medium text-cocoa">
+              <h3 className="relative mt-6 font-display text-3xl font-medium text-white">
                 {e.title}
               </h3>
-              <p className="relative mt-2 max-w-sm leading-relaxed text-cocoa-soft">{e.blurb}</p>
+              <p className="relative mt-2 max-w-sm leading-relaxed text-white/50">{e.blurb}</p>
               <div className="relative mt-6 flex flex-wrap gap-2">
                 {['Story', 'Schedule', 'Gallery', 'RSVP'].map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-white/60 bg-white/40 px-3 py-1 text-[11px] font-medium text-cocoa-soft"
+                    className="rounded-full border border-white/[0.12] bg-white/[0.06] px-3 py-1 text-[11px] font-medium text-white/50"
                   >
                     {tag}
                   </span>
@@ -77,7 +77,7 @@ export function EventsShowcase() {
         </div>
 
         <Reveal delay={0.2}>
-          <p className="mt-10 text-center text-sm text-cocoa-soft">
+          <p className="mt-10 text-center text-sm text-white/50">
             Sample event concepts — every celebration is built bespoke around yours.
           </p>
         </Reveal>

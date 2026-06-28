@@ -20,15 +20,15 @@ export function SkillOrbit() {
       <div className="container mx-auto grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
         <div>
           <Reveal>
-            <span className="eyebrow text-cocoa-soft">Skill Visualization</span>
+            <span className="eyebrow text-white/50">Skill Visualization</span>
           </Reveal>
           <AnimatedHeading
             as="h2"
             text="A living ecosystem of skills."
-            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-cocoa md:text-6xl"
+            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-white md:text-6xl"
           />
           <Reveal delay={0.15}>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-cocoa-soft">
+            <p className="mt-6 max-w-md text-lg leading-relaxed text-white/50">
               No tired progress bars. Your abilities orbit as one connected system — the way they
               actually work together.
             </p>
@@ -87,7 +87,7 @@ function OrbitRing({ items, radiusPct, duration, reverse = false, onHover }) {
               onHoverStart={() => onHover(skill)}
               onHoverEnd={() => onHover(null)}
               whileHover={{ scale: 1.18 }}
-              className="block cursor-default whitespace-nowrap rounded-full border border-white/60 bg-white/70 px-4 py-2 text-xs font-medium text-cocoa shadow-[0_8px_20px_-10px_rgba(91,59,34,0.5)] backdrop-blur"
+              className="block cursor-default whitespace-nowrap rounded-full border border-white/[0.12] bg-white/[0.08] px-4 py-2 text-xs font-medium text-white shadow-[0_8px_20px_-10px_rgba(0,0,0,0.5)] backdrop-blur"
             >
               {skill}
             </motion.span>

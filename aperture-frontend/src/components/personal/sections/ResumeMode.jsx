@@ -26,21 +26,21 @@ export function ResumeMode() {
         <div className="mb-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-xl">
             <Reveal>
-              <span className="eyebrow text-cocoa-soft">Live Resume Mode</span>
+              <span className="eyebrow text-white/50">Live Resume Mode</span>
             </Reveal>
-            <h2 className="mt-5 font-display text-4xl font-medium leading-[1.05] text-cocoa md:text-5xl">
+            <h2 className="mt-5 font-display text-4xl font-medium leading-[1.05] text-white md:text-5xl">
               Website or resume — same you, one click.
             </h2>
           </div>
 
           {/* toggle */}
-          <div className="inline-flex rounded-full border border-white/60 bg-white/40 p-1 backdrop-blur">
+          <div className="inline-flex rounded-full border border-white/[0.12] bg-white/[0.06] p-1 backdrop-blur">
             {['website', 'resume'].map((m) => (
               <button
                 key={m}
                 onClick={() => setMode(m)}
                 className={`relative rounded-full px-5 py-2 text-xs font-medium uppercase tracking-[0.14em] transition-colors ${
-                  mode === m ? 'text-white' : 'text-cocoa-soft hover:text-cocoa'
+                  mode === m ? 'text-white' : 'text-white/50 hover:text-white'
                 }`}
               >
                 {mode === m && (
@@ -56,7 +56,7 @@ export function ResumeMode() {
           </div>
         </div>
 
-        <div className="relative min-h-[360px] overflow-hidden rounded-2xl liquid-glass p-7 md:p-10">
+        <div className="relative min-h-[360px] overflow-hidden rounded-2xl dark-glass p-7 md:p-10">
           <AnimatePresence mode="wait">
             {mode === 'website' ? (
               <motion.div
@@ -69,17 +69,17 @@ export function ResumeMode() {
                 <span className="rounded-full bg-gold/15 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-gold">
                   Personal Brand
                 </span>
-                <h3 className="mt-5 font-display text-5xl font-medium text-cocoa md:text-6xl">
+                <h3 className="mt-5 font-display text-5xl font-medium text-white md:text-6xl">
                   Hi, I&rsquo;m Sanjeev.
                 </h3>
-                <p className="mt-3 max-w-lg text-lg text-cocoa-soft">
+                <p className="mt-3 max-w-lg text-lg text-white/50">
                   Founder & builder. I design products people actually enjoy using.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-2">
                   {skills.map((s) => (
                     <span
                       key={s}
-                      className="rounded-full border border-white/60 bg-white/50 px-4 py-1.5 text-sm text-cocoa"
+                      className="rounded-full border border-white/[0.12] bg-white/[0.07] px-4 py-1.5 text-sm text-white"
                     >
                       {s}
                     </span>
@@ -96,33 +96,33 @@ export function ResumeMode() {
                 className="grid grid-cols-1 gap-8 md:grid-cols-3"
               >
                 <div>
-                  <h3 className="font-display text-3xl font-medium text-cocoa">Sanjeev Sriram</h3>
-                  <p className="mt-1 text-sm text-cocoa-soft">Founder · Builder</p>
-                  <div className="mt-5 space-y-1 text-sm text-cocoa-soft">
+                  <h3 className="font-display text-3xl font-medium text-white">Sanjeev Sriram</h3>
+                  <p className="mt-1 text-sm text-white/50">Founder · Builder</p>
+                  <div className="mt-5 space-y-1 text-sm text-white/50">
                     <p>hi@sanjeev.dev</p>
                     <p>sanjeev.dev</p>
                     <p>Chennai, India</p>
                   </div>
                   <div className="mt-6 flex flex-wrap gap-1.5">
                     {skills.map((s) => (
-                      <span key={s} className="rounded bg-white/60 px-2 py-1 text-[11px] text-cocoa">
+                      <span key={s} className="rounded bg-white/[0.08] px-2 py-1 text-[11px] text-white">
                         {s}
                       </span>
                     ))}
                   </div>
                 </div>
                 <div className="md:col-span-2">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-cocoa-soft">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-white/50">
                     Experience
                   </span>
                   <div className="mt-3 divide-y divide-white/50">
                     {experience.map((e) => (
                       <div key={e.role} className="flex items-baseline justify-between py-3">
                         <div>
-                          <p className="font-medium text-cocoa">{e.role}</p>
-                          <p className="text-sm text-cocoa-soft">{e.org}</p>
+                          <p className="font-medium text-white">{e.role}</p>
+                          <p className="text-sm text-white/50">{e.org}</p>
                         </div>
-                        <span className="text-xs text-cocoa-soft">{e.period}</span>
+                        <span className="text-xs text-white/50">{e.period}</span>
                       </div>
                     ))}
                   </div>

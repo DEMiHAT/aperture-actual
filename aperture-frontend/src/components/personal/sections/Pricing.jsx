@@ -17,15 +17,15 @@ export function Pricing() {
       <div className="container mx-auto">
         <div className="mb-14 max-w-2xl">
           <Reveal>
-            <span className="eyebrow text-cocoa-soft">Pricing</span>
+            <span className="eyebrow text-white/50">Pricing</span>
           </Reveal>
           <AnimatedHeading
             as="h2"
             text="Built for where you are."
-            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-cocoa md:text-6xl"
+            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-white md:text-6xl"
           />
           <Reveal delay={0.15}>
-            <p className="mt-5 max-w-lg text-cocoa-soft">
+            <p className="mt-5 max-w-lg text-white/50">
               Every story is different, so every quote is too. Tell us what you&rsquo;re imagining
               and we&rsquo;ll shape something that fits.
             </p>
@@ -43,7 +43,7 @@ export function Pricing() {
               className={`relative flex flex-col rounded-2xl p-8 ${
                 tier.featured
                   ? 'warm-glow text-white'
-                  : 'liquid-glass text-cocoa'
+                  : 'dark-glass text-white'
               }`}
               style={
                 tier.featured
@@ -57,7 +57,7 @@ export function Pricing() {
                 </span>
               )}
               <h3 className="font-display text-3xl font-medium">{tier.name}</h3>
-              <p className={`mt-2 text-sm ${tier.featured ? 'text-white/80' : 'text-cocoa-soft'}`}>
+              <p className={`mt-2 text-sm ${tier.featured ? 'text-white/80' : 'text-white/50'}`}>
                 {tier.tagline}
               </p>
               <ul className="mt-7 space-y-3">
@@ -66,7 +66,7 @@ export function Pricing() {
                     <Check
                       className={`mt-0.5 h-4 w-4 shrink-0 ${tier.featured ? 'text-white' : 'text-gold'}`}
                     />
-                    <span className={tier.featured ? 'text-white/90' : 'text-cocoa'}>{pt}</span>
+                    <span className={tier.featured ? 'text-white/90' : 'text-white'}>{pt}</span>
                   </li>
                 ))}
               </ul>
@@ -75,8 +75,8 @@ export function Pricing() {
                   onClick={openConsultation}
                   className={`w-full rounded-full py-3.5 text-sm font-medium uppercase tracking-[0.12em] transition-transform hover:-translate-y-0.5 ${
                     tier.featured
-                      ? 'bg-white text-cocoa'
-                      : 'bg-cocoa text-cream'
+                      ? 'bg-white text-black'
+                      : 'bg-white/12 text-white border border-white/20'
                   }`}
                 >
                   Request Quote

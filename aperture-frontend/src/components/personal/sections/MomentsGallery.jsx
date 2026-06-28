@@ -29,15 +29,15 @@ export function MomentsGallery() {
       <div className="container mx-auto">
         <div className="mb-12 max-w-2xl">
           <Reveal>
-            <span className="eyebrow text-cocoa-soft">Memory Gallery</span>
+            <span className="eyebrow text-white/50">Memory Gallery</span>
           </Reveal>
           <AnimatedHeading
             as="h2"
             text="Some moments should never fade."
-            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-cocoa md:text-6xl"
+            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-white md:text-6xl"
           />
           <Reveal delay={0.15}>
-            <p className="mt-5 max-w-lg text-cocoa-soft">
+            <p className="mt-5 max-w-lg text-white/50">
               Weddings, graduations, birthdays, the quiet everyday. We give them a home — arranged
               like the scrapbook you always meant to make.
             </p>
@@ -54,7 +54,7 @@ export function MomentsGallery() {
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.7, delay: i * 0.1, ease: EASE }}
               whileHover={{ scale: 1.05, rotate: 0, zIndex: 20 }}
-              className="absolute w-44 cursor-grab rounded-sm bg-white p-3 pb-10 shadow-[0_18px_40px_-18px_rgba(91,59,34,0.6)] md:w-52"
+              className="absolute w-44 cursor-grab rounded-sm bg-white p-3 pb-10 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.7)] md:w-52"
               style={{ left: p.x, top: p.y }}
             >
               <div
@@ -64,7 +64,7 @@ export function MomentsGallery() {
                   animationDelay: `${i * 0.7}s`,
                 }}
               />
-              <span className="absolute bottom-3 left-0 right-0 text-center font-display text-sm italic text-cocoa-soft">
+              <span className="absolute bottom-3 left-0 right-0 text-center font-display text-sm italic text-zinc-500">
                 {p.caption}
               </span>
             </motion.div>
@@ -77,10 +77,10 @@ export function MomentsGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, ease: EASE }}
-          className="rounded-2xl liquid-glass p-7 md:p-10"
+          className="rounded-2xl dark-glass p-7 md:p-10"
         >
           <div className="flex items-center justify-between">
-            <span className="text-[10px] uppercase tracking-[0.22em] text-cocoa-soft">
+            <span className="text-[10px] uppercase tracking-[0.22em] text-white/50">
               Memory Time Machine
             </span>
             <AnimatePresence mode="wait">
@@ -105,10 +105,10 @@ export function MomentsGallery() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               className="mt-5 h-32 overflow-hidden rounded-xl"
-              style={{ background: `linear-gradient(135deg, ${active.tone}, #fff8ef)` }}
+              style={{ background: `linear-gradient(135deg, ${active.tone}cc, rgba(20,20,20,0.85))` }}
             >
               <div className="flex h-full items-end p-5">
-                <span className="font-display text-2xl italic text-cocoa">{active.caption}</span>
+                <span className="font-display text-2xl italic text-white">{active.caption}</span>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -130,7 +130,7 @@ export function MomentsGallery() {
                   key={m.year}
                   onClick={() => setIndex(i)}
                   className={`text-[11px] font-medium transition-colors ${
-                    i === index ? 'text-cocoa' : 'text-cocoa-soft hover:text-cocoa'
+                    i === index ? 'text-white' : 'text-white/50 hover:text-white'
                   }`}
                 >
                   {m.year}

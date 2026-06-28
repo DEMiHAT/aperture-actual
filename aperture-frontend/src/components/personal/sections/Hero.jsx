@@ -50,15 +50,15 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
-          className="mb-7 inline-flex items-center gap-2 rounded-full liquid-glass px-4 py-2"
+          className="mb-7 inline-flex items-center gap-2 rounded-full dark-glass px-4 py-2"
         >
           <Sparkles className="h-3.5 w-3.5 text-gold" />
-          <span className="text-[10px] uppercase tracking-[0.24em] text-cocoa-soft">
+          <span className="text-[10px] uppercase tracking-[0.24em] text-white/50">
             Aperture Personal
           </span>
         </motion.div>
 
-        <h1 className="font-display text-5xl font-medium leading-[1.0] tracking-tight text-cocoa md:text-6xl lg:text-7xl">
+        <h1 className="font-display text-5xl font-medium leading-[1.0] tracking-tight text-white md:text-6xl lg:text-7xl">
           {HEADLINE.map((word, i) => (
             <span key={i} className="inline-block overflow-hidden align-bottom">
               <motion.span
@@ -78,7 +78,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.1, ease: EASE }}
-          className="mt-7 max-w-md text-lg leading-relaxed text-cocoa-soft"
+          className="mt-7 max-w-md text-lg leading-relaxed text-white/50"
         >
           We build beautiful digital experiences for individuals, creators, students, and
           professionals.
@@ -89,9 +89,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.25, ease: EASE }}
-          className="mt-8 rounded-2xl liquid-glass p-5"
+          className="mt-8 rounded-2xl dark-glass p-5"
         >
-          <label className="text-[10px] uppercase tracking-[0.22em] text-cocoa-soft">
+          <label className="text-[10px] uppercase tracking-[0.22em] text-white/50">
             Try it — type your name
           </label>
           <input
@@ -99,11 +99,11 @@ export function Hero() {
             onChange={(e) => setName(e.target.value)}
             placeholder="Sanjeev"
             maxLength={24}
-            className="mt-2 w-full bg-transparent font-display text-3xl font-medium text-cocoa placeholder-cocoa/30 focus:outline-none"
+            className="mt-2 w-full bg-transparent font-display text-3xl font-medium text-white placeholder-white/20 focus:outline-none"
           />
-          <div className="mt-3 flex items-baseline gap-2 border-t border-white/50 pt-3">
-            <span className="font-display text-xl text-cocoa">Hi, I&rsquo;m {displayName}.</span>
-            <span className="flex items-center gap-2 text-sm text-cocoa-soft">
+          <div className="mt-3 flex items-baseline gap-2 border-t border-white/[0.1] pt-3">
+            <span className="font-display text-xl text-white">Hi, I&rsquo;m {displayName}.</span>
+            <span className="flex items-center gap-2 text-sm text-white/50">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={roleIndex}
@@ -116,7 +116,7 @@ export function Hero() {
                   {heroRoles[roleIndex]}
                 </motion.span>
               </AnimatePresence>
-              <span className="text-cocoa/40">• Builder</span>
+              <span className="text-white/30">• Builder</span>
             </span>
           </div>
         </motion.div>
@@ -171,7 +171,7 @@ export function Hero() {
               className={`rounded-full border px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.12em] transition-all ${
                 previewIndex === i
                   ? 'border-transparent bg-gradient-to-r from-gold to-sunset text-white shadow-[0_6px_18px_-6px_rgba(244,117,75,0.6)]'
-                  : 'border-white/60 text-cocoa-soft hover:text-cocoa'
+                  : 'border-white/[0.12] text-white/50 hover:text-white'
               }`}
             >
               {p.label}
@@ -181,7 +181,7 @@ export function Hero() {
 
         {/* Theme switcher */}
         <div className="mt-4 flex flex-col items-center gap-2">
-          <span className="text-[10px] uppercase tracking-[0.22em] text-cocoa-soft">
+          <span className="text-[10px] uppercase tracking-[0.22em] text-white/50">
             Preview a style
           </span>
           <div className="flex items-center gap-2">
@@ -193,8 +193,8 @@ export function Hero() {
                 title={preset.label}
                 className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-medium transition-all ${
                   theme.key === preset.key
-                    ? 'border-cocoa/30 bg-white/70 text-cocoa'
-                    : 'border-white/50 text-cocoa-soft hover:text-cocoa'
+                    ? 'border-white/20 bg-white/[0.12] text-white'
+                    : 'border-white/[0.1] text-white/50 hover:text-white'
                 }`}
               >
                 <span
@@ -213,7 +213,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-cocoa-soft lg:flex"
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/50 lg:flex"
       >
         <span className="text-[10px] uppercase tracking-[0.22em]">Scroll to explore</span>
         <ArrowRight className="h-4 w-4 rotate-90 animate-bounce" />

@@ -25,12 +25,14 @@ export function ModeToggle({ variant = 'enterprise', className = '', size = 'sm'
       : 'text-xs tracking-[0.16em] gap-1 p-1';
   const pad = size === 'sm' ? 'px-3.5 py-1.5' : 'px-5 py-2.5';
 
+  // `warm` variant now means the *Personal* (dark) context: white indicator
+  // on a translucent track. Enterprise stays black-on-white.
   const track = warm
-    ? 'border-white/50 bg-white/30 backdrop-blur-md'
+    ? 'border-white/20 bg-white/10 backdrop-blur-md'
     : 'border-line bg-mist/70 backdrop-blur';
 
   const indicator = warm
-    ? 'bg-gradient-to-r from-[#e6a532] to-[#f4754b] shadow-[0_4px_18px_-4px_rgba(244,117,75,0.6)]'
+    ? 'bg-white shadow-[0_4px_18px_-4px_rgba(255,255,255,0.5)]'
     : 'bg-ink';
 
   const select = (target) => {
@@ -39,8 +41,8 @@ export function ModeToggle({ variant = 'enterprise', className = '', size = 'sm'
   };
 
   const labelColor = (active) => {
-    if (active) return warm ? 'text-white' : 'text-paper';
-    return warm ? 'text-cocoa-soft hover:text-cocoa' : 'text-ash hover:text-ink';
+    if (active) return warm ? 'text-black' : 'text-paper';
+    return warm ? 'text-white/60 hover:text-white' : 'text-ash hover:text-ink';
   };
 
   const options = [

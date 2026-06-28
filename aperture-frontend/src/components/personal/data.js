@@ -255,13 +255,21 @@ export const previewSites = [
 // Hero typewriter roles.
 export const heroRoles = ['Developer', 'Founder', 'Builder', 'Creator', 'Designer'];
 
-// Theme switcher presets — transform the preview's palette.
+// Theme switcher presets — monochrome only (black & white), matching the
+// Aperture Personal identity. Transforms the preview's palette.
 export const themePresets = [
-  { key: 'professional', label: 'Professional', bg: '#fbf7f0', ink: '#5b3b22', accent: '#e6a532' },
-  { key: 'creative', label: 'Creative', bg: '#fff4ec', ink: '#7a2d12', accent: '#f4754b' },
-  { key: 'minimal', label: 'Minimal', bg: '#ffffff', ink: '#1a1a1a', accent: '#8a8a8a' },
-  { key: 'premium', label: 'Premium', bg: '#241a12', ink: '#fdebc9', accent: '#e6a532' },
+  { key: 'professional', label: 'Professional', bg: '#ffffff', ink: '#1a1a1a', accent: '#1a1a1a' },
+  { key: 'creative', label: 'Creative', bg: '#111111', ink: '#ffffff', accent: '#ffffff' },
+  { key: 'minimal', label: 'Minimal', bg: '#f5f5f5', ink: '#222222', accent: '#888888' },
+  { key: 'premium', label: 'Premium', bg: '#000000', ink: '#ffffff', accent: '#d4d4d4' },
 ];
+
+// The headline promise for Aperture Personal.
+export const handover = {
+  hours: 48,
+  badge: '48-Hour Handover',
+  line: 'Your finished website, in your hands within 48 hours.',
+};
 
 // Skill ecosystem — orbiting nodes.
 export const skillNodes = [

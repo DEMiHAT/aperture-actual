@@ -23,12 +23,12 @@ export function CostEstimator() {
       <div className="container mx-auto max-w-4xl">
         <div className="mb-12 max-w-2xl">
           <Reveal>
-            <span className="eyebrow text-cocoa-soft">Cost Estimator</span>
+            <span className="eyebrow text-white/50">Cost Estimator</span>
           </Reveal>
           <AnimatedHeading
             as="h2"
             text="Find your range in seconds."
-            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-cocoa md:text-6xl"
+            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-white md:text-6xl"
           />
         </div>
 
@@ -37,11 +37,11 @@ export function CostEstimator() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, ease: EASE }}
-          className="rounded-2xl liquid-glass p-7 md:p-10"
+          className="rounded-2xl dark-glass p-7 md:p-10"
         >
           <div className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-end">
             <div>
-              <span className="text-[10px] uppercase tracking-[0.22em] text-cocoa-soft">
+              <span className="text-[10px] uppercase tracking-[0.22em] text-white/50">
                 What are we building?
               </span>
               <AnimatePresence mode="wait">
@@ -51,7 +51,7 @@ export function CostEstimator() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.3 }}
-                  className="font-display text-4xl font-medium text-cocoa md:text-5xl"
+                  className="font-display text-4xl font-medium text-white md:text-5xl"
                 >
                   {active.label}
                 </motion.h3>
@@ -90,7 +90,7 @@ export function CostEstimator() {
                   key={t.key}
                   onClick={() => setIndex(i)}
                   className={`text-[11px] font-medium transition-colors ${
-                    i === index ? 'text-cocoa' : 'text-cocoa-soft hover:text-cocoa'
+                    i === index ? 'text-white' : 'text-white/50 hover:text-white'
                   }`}
                 >
                   {t.label}
@@ -99,8 +99,8 @@ export function CostEstimator() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-white/50 pt-6 sm:flex-row sm:items-center">
-            <p className="text-cocoa-soft">
+          <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-white/[0.1] pt-6 sm:flex-row sm:items-center">
+            <p className="text-white/50">
               Approx. tier:{' '}
               <span className="font-medium text-warm-gradient">{active.range}</span>
             </p>

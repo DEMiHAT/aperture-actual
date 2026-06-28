@@ -15,10 +15,9 @@ const NAV = [
 ];
 
 /**
- * PersonalNav — the warm nav that sits on top of the Personal overlay.
- * Mirrors the Enterprise navbar layout but in the warm palette, with the
- * same ModeToggle (so the user can morph back to Enterprise) and internal
- * view switching that never triggers a page navigation.
+ * PersonalNav — the monochrome nav on top of the dark Personal overlay
+ * (white on black, the inverse of the Enterprise navbar). Carries the same
+ * ModeToggle to morph back, plus internal view switching with no navigation.
  */
 export function PersonalNav() {
   const { view, setView } = useMode();
@@ -41,11 +40,11 @@ export function PersonalNav() {
           {/* Wordmark */}
           <button onClick={() => go('home')} className="group flex items-center gap-3">
             <span className="relative flex h-7 w-7 items-center justify-center">
-              <span className="absolute inset-0 rounded-full border border-gold transition-transform duration-700 group-hover:rotate-180" />
-              <span className="h-2 w-2 rounded-full bg-gradient-to-br from-gold to-sunset transition-transform duration-500 group-hover:scale-150" />
+              <span className="absolute inset-0 rounded-full border border-white/70 transition-transform duration-700 group-hover:rotate-180" />
+              <span className="h-2 w-2 rounded-full bg-white transition-transform duration-500 group-hover:scale-150" />
             </span>
-            <span className="font-display text-2xl font-medium tracking-tight text-cocoa">
-              Aperture <span className="text-warm-gradient italic">Personal</span>
+            <span className="font-display text-2xl font-medium tracking-tight text-white">
+              Aperture <span className="italic text-white/50">Personal</span>
             </span>
           </button>
 
@@ -56,14 +55,14 @@ export function PersonalNav() {
                 key={item.key}
                 onClick={() => go(item.key)}
                 className={`text-[12px] font-medium uppercase tracking-[0.16em] transition-colors ${
-                  view === item.key ? 'text-cocoa' : 'text-cocoa-soft hover:text-cocoa'
+                  view === item.key ? 'text-white' : 'text-white/50 hover:text-white'
                 }`}
               >
                 {item.label}
                 {view === item.key && (
                   <motion.span
                     layoutId="personal-nav-underline"
-                    className="mt-1 block h-px bg-gradient-to-r from-gold to-sunset"
+                    className="mt-1 block h-px bg-white"
                   />
                 )}
               </button>
@@ -74,7 +73,7 @@ export function PersonalNav() {
           <div className="flex items-center gap-3">
             <ModeToggle variant="warm" className="hidden sm:inline-flex" />
             <button
-              className="text-cocoa lg:hidden"
+              className="text-white lg:hidden"
               onClick={() => setOpen((o) => !o)}
               aria-label="Toggle menu"
             >
@@ -92,7 +91,7 @@ export function PersonalNav() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-b border-white/40 liquid-glass lg:hidden"
+            className="overflow-hidden border-b border-white/10 bg-black/90 backdrop-blur-xl lg:hidden"
           >
             <div className="container mx-auto flex flex-col gap-1 px-6 py-6">
               {NAV.map((item, i) => (
@@ -102,7 +101,7 @@ export function PersonalNav() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
                   onClick={() => go(item.key)}
-                  className="border-b border-white/40 py-4 text-left font-display text-3xl font-medium text-cocoa"
+                  className="border-b border-white/10 py-4 text-left font-display text-3xl font-medium text-white"
                 >
                   {item.label}
                 </motion.button>

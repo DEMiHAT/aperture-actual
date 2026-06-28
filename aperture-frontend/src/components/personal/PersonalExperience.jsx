@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMode } from './ModeProvider';
 import { PersonalNav } from './PersonalNav';
-import { MomentsParticles } from '@/components/moments/MomentsParticles';
+import { PersonalAtmosphere } from './PersonalAtmosphere';
 
 import { Hero } from './sections/Hero';
 import { WhatWeBuild } from './sections/WhatWeBuild';
@@ -150,26 +150,26 @@ export function PersonalExperience() {
       transition={{ duration: 0.6, ease: EASE }}
       className="fixed inset-0 z-[60]"
     >
-      {/* Warm base wash that fades in over the dissolving mono site */}
+      {/* Black base that fades in over the dissolving white Enterprise site */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, ease: EASE }}
-        className="absolute inset-0 bg-cream"
+        transition={{ duration: 1.0, ease: EASE }}
+        className="absolute inset-0 bg-black"
         style={{
           backgroundImage:
-            'radial-gradient(ellipse 80% 55% at 50% 0%, rgba(253,232,196,0.95), transparent 60%), radial-gradient(ellipse 70% 50% at 85% 100%, rgba(247,168,184,0.45), transparent 60%), radial-gradient(ellipse 60% 50% at 10% 80%, rgba(245,158,66,0.3), transparent 60%)',
+            'radial-gradient(ellipse 80% 55% at 50% 0%, rgba(255,255,255,0.08), transparent 60%), radial-gradient(ellipse 70% 50% at 85% 100%, rgba(255,255,255,0.05), transparent 60%)',
         }}
       />
 
-      {/* Ambient particles (reuse the Moments atmosphere) */}
+      {/* Monochrome ambient atmosphere */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.4, delay: 0.3, ease: EASE }}
         className="pointer-events-none absolute inset-0"
       >
-        <MomentsParticles density="full" />
+        <PersonalAtmosphere />
       </motion.div>
 
       <PersonalNav />
@@ -179,7 +179,7 @@ export function PersonalExperience() {
         ref={scrollRef}
         className="relative h-full w-full overflow-y-auto overflow-x-hidden"
       >
-        <div className="relative text-cocoa">
+        <div className="relative text-white">
           <AnimatePresence mode="wait">
             <motion.div
               key={view}

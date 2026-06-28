@@ -27,12 +27,12 @@ export function CareerTimeline() {
       <div className="container mx-auto max-w-4xl">
         <div className="mb-14 max-w-2xl">
           <Reveal>
-            <span className="eyebrow text-cocoa-soft">Career Timeline</span>
+            <span className="eyebrow text-white/50">Career Timeline</span>
           </Reveal>
           <AnimatedHeading
             as="h2"
             text="Every milestone, in its place."
-            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-cocoa md:text-6xl"
+            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-white md:text-6xl"
           />
         </div>
 
@@ -54,12 +54,12 @@ export function CareerTimeline() {
               >
                 <span
                   className={`absolute -left-8 top-1.5 flex h-4 w-4 items-center justify-center rounded-full border-2 ${
-                    isOpen ? 'border-sunset bg-sunset' : 'border-gold bg-cream'
+                    isOpen ? 'border-sunset bg-sunset' : 'border-gold bg-black'
                   }`}
                 />
                 <button onClick={() => setOpen(isOpen ? -1 : i)} className="text-left">
                   <span className="font-display text-sm italic text-gold">{m.year}</span>
-                  <h3 className="font-display text-2xl font-medium text-cocoa">{m.title}</h3>
+                  <h3 className="font-display text-2xl font-medium text-white">{m.title}</h3>
                 </button>
 
                 <AnimatePresence initial={false}>
@@ -71,12 +71,12 @@ export function CareerTimeline() {
                       transition={{ duration: 0.4, ease: EASE }}
                       className="overflow-hidden"
                     >
-                      <div className="mt-3 flex items-center gap-4 rounded-xl border border-white/60 bg-white/50 p-4">
+                      <div className="mt-3 flex items-center gap-4 rounded-xl border border-white/[0.12] bg-white/[0.07] p-4">
                         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-gold/20 to-sunset/20 text-gold">
                           <Icon className="h-5 w-5" />
                         </span>
                         <div>
-                          <p className="text-sm text-cocoa-soft">{m.detail}</p>
+                          <p className="text-sm text-white/50">{m.detail}</p>
                           <span className="mt-1 inline-block text-[10px] uppercase tracking-[0.16em] text-gold">
                             {m.tag} attached
                           </span>

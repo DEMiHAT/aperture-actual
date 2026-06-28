@@ -118,7 +118,7 @@ export function LaptopFrame({ children, className = '' }) {
   return (
     <div className={`w-full ${className}`}>
       <div
-        className="relative rounded-[1.4rem] border border-white/60 bg-white/70 p-2 shadow-[0_30px_80px_-30px_rgba(91,59,34,0.5)] backdrop-blur"
+        className="relative rounded-[1.4rem] border border-white/[0.12] bg-white/[0.12] p-2 shadow-[0_30px_80px_-30px_rgba(91,59,34,0.5)] backdrop-blur"
         style={{ containerType: 'inline-size' }}
       >
         {/* camera dot */}
@@ -135,7 +135,7 @@ export function LaptopFrame({ children, className = '' }) {
 export function PhoneFrame({ children, className = '' }) {
   return (
     <div
-      className={`relative rounded-[1.6rem] border border-white/60 bg-white/70 p-1.5 shadow-[0_24px_60px_-24px_rgba(91,59,34,0.5)] backdrop-blur ${className}`}
+      className={`relative rounded-[1.6rem] border border-white/[0.12] bg-white/[0.12] p-1.5 shadow-[0_24px_60px_-24px_rgba(91,59,34,0.5)] backdrop-blur ${className}`}
       style={{ containerType: 'inline-size' }}
     >
       <div className="absolute left-1/2 top-2 z-10 h-1 w-10 -translate-x-1/2 rounded-full bg-cocoa/20" />
@@ -148,7 +148,7 @@ export function PhoneFrame({ children, className = '' }) {
 export function TabletFrame({ children, className = '' }) {
   return (
     <div
-      className={`relative rounded-[1.4rem] border border-white/60 bg-white/70 p-2 shadow-[0_24px_60px_-24px_rgba(91,59,34,0.5)] backdrop-blur ${className}`}
+      className={`relative rounded-[1.4rem] border border-white/[0.12] bg-white/[0.12] p-2 shadow-[0_24px_60px_-24px_rgba(91,59,34,0.5)] backdrop-blur ${className}`}
       style={{ containerType: 'inline-size' }}
     >
       <div className="aspect-[4/3] overflow-hidden rounded-lg bg-white">{children}</div>
@@ -161,7 +161,7 @@ export function DesktopFrame({ children, className = '' }) {
   return (
     <div className={`w-full ${className}`}>
       <div
-        className="relative rounded-xl border border-white/60 bg-white/70 p-2 shadow-[0_30px_80px_-30px_rgba(91,59,34,0.5)] backdrop-blur"
+        className="relative rounded-xl border border-white/[0.12] bg-white/[0.12] p-2 shadow-[0_30px_80px_-30px_rgba(91,59,34,0.5)] backdrop-blur"
         style={{ containerType: 'inline-size' }}
       >
         <div className="aspect-[16/9] overflow-hidden rounded-md bg-white">{children}</div>

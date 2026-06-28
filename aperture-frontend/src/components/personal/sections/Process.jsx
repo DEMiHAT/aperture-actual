@@ -13,12 +13,12 @@ export function Process() {
       <div className="container mx-auto">
         <div className="mb-14 max-w-2xl">
           <Reveal>
-            <span className="eyebrow text-cocoa-soft">The Process</span>
+            <span className="eyebrow text-white/50">The Process</span>
           </Reveal>
           <AnimatedHeading
             as="h2"
             text="Simple, start to launch."
-            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-cocoa md:text-6xl"
+            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-white md:text-6xl"
           />
         </div>
 
@@ -35,11 +35,11 @@ export function Process() {
                 transition={{ duration: 0.6, delay: i * 0.1, ease: EASE }}
                 className="relative"
               >
-                <span className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-white/60 bg-cream font-display text-lg font-medium text-gold shadow-[0_8px_24px_-10px_rgba(230,165,50,0.6)]">
+                <span className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/[0.08] font-display text-lg font-medium text-gold shadow-[0_8px_24px_-10px_rgba(230,165,50,0.4)]">
                   {p.step}
                 </span>
-                <h3 className="mt-5 font-display text-xl font-medium text-cocoa">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-cocoa-soft">{p.blurb}</p>
+                <h3 className="mt-5 font-display text-xl font-medium text-white">{p.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/50">{p.blurb}</p>
               </motion.div>
             ))}
           </div>

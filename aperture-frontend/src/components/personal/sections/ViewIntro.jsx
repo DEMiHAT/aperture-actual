@@ -18,11 +18,11 @@ export function ViewIntro({ eyebrow, title, body }) {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: EASE }}
-          className="inline-flex items-center gap-2 rounded-full liquid-glass px-4 py-2 text-[10px] uppercase tracking-[0.24em] text-cocoa-soft"
+          className="inline-flex items-center gap-2 rounded-full dark-glass px-4 py-2 text-[10px] uppercase tracking-[0.24em] text-white/50"
         >
           {eyebrow}
         </motion.span>
-        <h1 className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.0] text-cocoa md:text-7xl">
+        <h1 className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.0] text-white md:text-7xl">
           {words.map((w, i) => (
             <span key={i} className="inline-block overflow-hidden align-bottom">
               <motion.span
@@ -41,7 +41,7 @@ export function ViewIntro({ eyebrow, title, body }) {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4, ease: EASE }}
-          className="mt-6 max-w-xl text-lg leading-relaxed text-cocoa-soft"
+          className="mt-6 max-w-xl text-lg leading-relaxed text-white/50"
         >
           {body}
         </motion.p>

@@ -172,6 +172,17 @@ body {
 /* Aperture Moments — warm portal utilities & keyframes               */
 /* ================================================================== */
 
+/* Dark frosted glass panel — Personal mode (black background) */
+@utility dark-glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 8px 40px -12px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+}
+
 /* Warm frosted "liquid glass" panel */
 @utility liquid-glass {
   background: linear-gradient(
@@ -275,15 +286,44 @@ body {
 }
 
 /* ================================================================== */
-/* Aperture Personal — warm range slider (Memory Time Machine, etc.)  */
-/* Additive only: scoped to .memory-range, used inside Personal mode.  */
+/* Aperture Personal — monochrome dark theme (black bg, white elements) */
+/* Additive only. The inverse of the Enterprise (white bg, black ink). */
+/* Scoped to .personal-* / .dark-glass utilities used inside Personal.  */
 /* ================================================================== */
+
+/* Frosted dark "glass" panel — subtle white tint on black */
+@utility dark-glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 8px 40px -16px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Soft white glow halo */
+@utility mono-glow {
+  box-shadow:
+    0 10px 50px -10px rgba(255, 255, 255, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+/* White -> grey text gradient for large editorial headings */
+@utility text-mono-gradient {
+  background-image: linear-gradient(100deg, #ffffff, #ffffff 40%, #8a8a8a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Range slider — grayscale (Memory Time Machine, Cost Estimator) */
 .memory-range {
   -webkit-appearance: none;
   appearance: none;
   height: 4px;
   border-radius: 9999px;
-  background: linear-gradient(90deg, #e6a532, #f4754b, #ef6f8e);
+  background: linear-gradient(90deg, #ffffff, #8a8a8a);
   outline: none;
 }
 .memory-range::-webkit-slider-thumb {
@@ -292,17 +332,17 @@ body {
   width: 22px;
   height: 22px;
   border-radius: 9999px;
-  background: #fff8ef;
-  border: 3px solid #f4754b;
-  box-shadow: 0 4px 14px -4px rgba(244, 117, 75, 0.7);
+  background: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 0 4px 14px -4px rgba(255, 255, 255, 0.6);
   cursor: grab;
 }
 .memory-range::-moz-range-thumb {
   width: 22px;
   height: 22px;
   border-radius: 9999px;
-  background: #fff8ef;
-  border: 3px solid #f4754b;
-  box-shadow: 0 4px 14px -4px rgba(244, 117, 75, 0.7);
+  background: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 0 4px 14px -4px rgba(255, 255, 255, 0.6);
   cursor: grab;
 }

@@ -31,7 +31,7 @@ export function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.9, ease: EASE }}
-            className="mx-auto max-w-3xl font-display text-5xl font-medium leading-[1.0] text-cocoa md:text-7xl"
+            className="mx-auto max-w-3xl font-display text-5xl font-medium leading-[1.0] text-white md:text-7xl"
           >
             Let&rsquo;s Build Something <span className="italic text-warm-gradient">Personal</span>
           </motion.h2>
@@ -41,7 +41,7 @@ export function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.9, delay: 0.15, ease: EASE }}
-            className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cocoa-soft"
+            className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/50"
           >
             Your story, your milestones, your name — given a home that does them justice.
           </motion.p>
@@ -59,13 +59,13 @@ export function FinalCTA() {
           </motion.div>
         </div>
 
-        <div className="mt-12 border-y border-white/50">
+        <div className="mt-12 border-y border-white/[0.1]">
           <Marquee className="py-4" slow>
             {['Portfolios', 'Personal Brands', 'Events', 'Memory Pages', 'Resumes', 'Creators'].map(
               (t, i) => (
                 <span
                   key={i}
-                  className="flex items-center whitespace-nowrap px-6 text-xs uppercase tracking-[0.2em] text-cocoa-soft"
+                  className="flex items-center whitespace-nowrap px-6 text-xs uppercase tracking-[0.2em] text-white/50"
                 >
                   {t}
                   <span className="mx-6 inline-block h-1 w-1 rounded-full bg-gold" />

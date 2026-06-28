@@ -42,15 +42,15 @@ export function Showcase() {
       <div className="container mx-auto">
         <div className="mb-14 max-w-2xl">
           <Reveal>
-            <span className="eyebrow text-cocoa-soft">Showcase</span>
+            <span className="eyebrow text-white/50">Showcase</span>
           </Reveal>
           <AnimatedHeading
             as="h2"
             text="A few sites we'd be proud of."
-            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-cocoa md:text-6xl"
+            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-white md:text-6xl"
           />
           <Reveal delay={0.15}>
-            <p className="mt-5 max-w-lg text-cocoa-soft">
+            <p className="mt-5 max-w-lg text-white/50">
               Sample concepts — tap any one to step inside.
             </p>
           </Reveal>
@@ -69,7 +69,7 @@ export function Showcase() {
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: EASE }}
                 whileHover={{ y: -6 }}
-                className="group overflow-hidden rounded-2xl border border-white/60 bg-white/50 text-left shadow-[0_18px_50px_-30px_rgba(91,59,34,0.5)] backdrop-blur"
+                className="group overflow-hidden rounded-2xl border border-white/[0.12] bg-white/[0.07] text-left shadow-[0_18px_50px_-30px_rgba(0,0,0,0.6)] backdrop-blur"
               >
                 <motion.div layoutId={`media-${item.name}`} className="aspect-[4/3] overflow-hidden" style={{ containerType: 'inline-size' }}>
                   <WebsiteMock
@@ -81,10 +81,10 @@ export function Showcase() {
                 </motion.div>
                 <div className="flex items-center justify-between p-5">
                   <div>
-                    <h3 className="font-display text-xl font-medium text-cocoa">{item.name}</h3>
-                    <p className="text-sm text-cocoa-soft">{item.role}</p>
+                    <h3 className="font-display text-xl font-medium text-white">{item.name}</h3>
+                    <p className="text-sm text-white/50">{item.role}</p>
                   </div>
-                  <ArrowUpRight className="h-5 w-5 text-cocoa-soft transition-all duration-500 group-hover:rotate-45 group-hover:text-sunset" />
+                  <ArrowUpRight className="h-5 w-5 text-white/50 transition-all duration-500 group-hover:rotate-45 group-hover:text-sunset" />
                 </div>
               </motion.button>
             );
@@ -109,17 +109,17 @@ function ExpandedCard({ active, onClose }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-cocoa/40 backdrop-blur-md"
+            className="absolute inset-0 bg-black/70 backdrop-blur-md"
           />
 
           <motion.div
             layoutId={`card-${active.name}`}
-            className="relative z-10 flex max-h-[88vh] w-full max-w-4xl flex-col overflow-hidden rounded-[1.6rem] border border-white/60 bg-cream shadow-[0_40px_100px_-40px_rgba(91,59,34,0.7)]"
+            className="relative z-10 flex max-h-[88vh] w-full max-w-4xl flex-col overflow-hidden rounded-[1.6rem] border border-white/[0.12] bg-[#111] shadow-[0_40px_100px_-40px_rgba(0,0,0,0.9)]"
           >
             <button
               onClick={onClose}
               aria-label="Close"
-              className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-cocoa backdrop-blur transition-colors hover:bg-white"
+              className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/20"
             >
               <X className="h-4 w-4" />
             </button>
@@ -150,10 +150,10 @@ function ExpandedCard({ active, onClose }) {
                 >
                   {active.role}
                 </span>
-                <h3 className="mt-4 font-display text-4xl font-medium text-cocoa md:text-5xl">
+                <h3 className="mt-4 font-display text-4xl font-medium text-white md:text-5xl">
                   {active.name}
                 </h3>
-                <p className="mt-3 max-w-xl text-lg leading-relaxed text-cocoa-soft">
+                <p className="mt-3 max-w-xl text-lg leading-relaxed text-white/50">
                   {active.summary}
                 </p>
 
@@ -162,9 +162,9 @@ function ExpandedCard({ active, onClose }) {
                   {active.highlights.map((h) => (
                     <div
                       key={h}
-                      className="rounded-xl border border-white/60 bg-white/60 p-4 text-center"
+                      className="rounded-xl border border-white/[0.12] bg-white/[0.08] p-4 text-center"
                     >
-                      <span className="text-sm font-medium text-cocoa">{h}</span>
+                      <span className="text-sm font-medium text-white">{h}</span>
                     </div>
                   ))}
                 </div>
@@ -175,7 +175,7 @@ function ExpandedCard({ active, onClose }) {
                     <React.Fragment key={step}>
                       <div className="flex flex-col items-center gap-1">
                         <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-gold to-sunset" />
-                        <span className="text-[10px] uppercase tracking-[0.14em] text-cocoa-soft">
+                        <span className="text-[10px] uppercase tracking-[0.14em] text-white/50">
                           {step}
                         </span>
                       </div>

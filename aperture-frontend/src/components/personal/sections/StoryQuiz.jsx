@@ -52,12 +52,12 @@ export function StoryQuiz() {
       <div className="container mx-auto max-w-3xl">
         <div className="mb-10 text-center">
           <Reveal>
-            <span className="eyebrow text-cocoa-soft">Build My Story</span>
+            <span className="eyebrow text-white/50">Build My Story</span>
           </Reveal>
           <AnimatedHeading
             as="h2"
             text="Not sure where to start?"
-            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-cocoa md:text-6xl"
+            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-white md:text-6xl"
           />
         </div>
 
@@ -66,10 +66,10 @@ export function StoryQuiz() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, ease: EASE }}
-          className="overflow-hidden rounded-2xl liquid-glass p-7 md:p-10"
+          className="overflow-hidden rounded-2xl dark-glass p-7 md:p-10"
         >
           {/* progress */}
-          <div className="mb-7 h-1 w-full overflow-hidden rounded-full bg-white/50">
+          <div className="mb-7 h-1 w-full overflow-hidden rounded-full bg-white/[0.07]">
             <motion.div
               animate={{ width: `${(isResult ? 1 : progress) * 100}%` }}
               transition={{ duration: 0.4, ease: EASE }}
@@ -89,7 +89,7 @@ export function StoryQuiz() {
                 <span className="text-[11px] uppercase tracking-[0.18em] text-gold">
                   Question {step + 1} / {quizQuestions.length}
                 </span>
-                <h3 className="mt-2 font-display text-3xl font-medium text-cocoa md:text-4xl">
+                <h3 className="mt-2 font-display text-3xl font-medium text-white md:text-4xl">
                   {quizQuestions[step].q}
                 </h3>
                 <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -97,16 +97,16 @@ export function StoryQuiz() {
                     <button
                       key={opt.label}
                       onClick={() => choose(opt.weight)}
-                      className="group rounded-xl border border-white/60 bg-white/50 p-5 text-left transition-all hover:-translate-y-0.5 hover:border-gold/50 hover:bg-white/70"
+                      className="group rounded-xl border border-white/[0.12] bg-white/[0.07] p-5 text-left transition-all hover:-translate-y-0.5 hover:border-gold/50 hover:bg-white/[0.12]"
                     >
-                      <span className="font-medium text-cocoa">{opt.label}</span>
+                      <span className="font-medium text-white">{opt.label}</span>
                     </button>
                   ))}
                 </div>
                 {step > 0 && (
                   <button
                     onClick={back}
-                    className="mt-6 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-cocoa-soft hover:text-cocoa"
+                    className="mt-6 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-white/50 hover:text-white"
                   >
                     <ArrowLeft className="h-4 w-4" /> Back
                   </button>
@@ -127,7 +127,7 @@ export function StoryQuiz() {
                 <h3 className="mt-5 font-display text-5xl font-medium text-warm-gradient md:text-6xl">
                   {result.name}
                 </h3>
-                <p className="mx-auto mt-4 max-w-md text-lg leading-relaxed text-cocoa-soft">
+                <p className="mx-auto mt-4 max-w-md text-lg leading-relaxed text-white/50">
                   {result.line}
                 </p>
                 <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -136,7 +136,7 @@ export function StoryQuiz() {
                   </MomentsButton>
                   <button
                     onClick={restart}
-                    className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.14em] text-cocoa-soft hover:text-cocoa"
+                    className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.14em] text-white/50 hover:text-white"
                   >
                     <RotateCcw className="h-4 w-4" /> Retake
                   </button>

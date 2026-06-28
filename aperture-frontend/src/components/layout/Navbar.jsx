@@ -3,9 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { StartProjectButton } from '@/components/ui/StartProject';
-import { useMoments } from '@/components/moments/MomentsProvider';
 import { ModeToggle } from '@/components/personal/ModeToggle';
 
 const links = [
@@ -20,7 +19,6 @@ const links = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { open: openMoments } = useMoments();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -66,14 +64,6 @@ export function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              {/* Aperture Moments — the portal trigger */}
-              <button
-                onClick={openMoments}
-                className="group inline-flex items-center gap-1.5 text-[13px] font-medium uppercase tracking-[0.16em] text-ash transition-colors hover:text-[#e6a532]"
-              >
-                <Sparkles className="h-3.5 w-3.5 text-[#e6a532] transition-transform duration-500 group-hover:rotate-90" />
-                Moments
-              </button>
             </nav>
 
             {/* Desktop CTA + Mode switch */}
@@ -129,16 +119,6 @@ export function Navbar() {
                   </Link>
                 </motion.div>
               ))}
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  openMoments();
-                }}
-                className="flex items-center gap-2 border-b border-line py-4 text-left font-display text-3xl font-medium text-[#e6a532]"
-              >
-                <Sparkles className="h-6 w-6" />
-                Moments
-              </button>
               <div className="pt-6">
                 <StartProjectButton className="w-full" label="Start Project" />
               </div>

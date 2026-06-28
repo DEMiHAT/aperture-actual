@@ -32,12 +32,12 @@ export function DeviceCarousel() {
       <div className="container mx-auto">
         <div className="mb-12 max-w-2xl">
           <Reveal>
-            <span className="eyebrow text-cocoa-soft">Every Screen</span>
+            <span className="eyebrow text-white/50">Every Screen</span>
           </Reveal>
           <AnimatedHeading
             as="h2"
             text="Flawless on every device."
-            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-cocoa md:text-6xl"
+            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-white md:text-6xl"
           />
         </div>
 
@@ -50,7 +50,7 @@ export function DeviceCarousel() {
               className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium uppercase tracking-[0.12em] transition-all ${
                 active === d.key
                   ? 'border-transparent bg-gradient-to-r from-gold to-sunset text-white shadow-[0_6px_18px_-6px_rgba(244,117,75,0.6)]'
-                  : 'border-white/60 text-cocoa-soft hover:text-cocoa'
+                  : 'border-white/[0.12] text-white/50 hover:text-white'
               }`}
             >
               <d.icon className="h-4 w-4" /> {d.label}
@@ -58,7 +58,7 @@ export function DeviceCarousel() {
           ))}
         </div>
 
-        <div className="flex min-h-[420px] items-center justify-center rounded-2xl liquid-glass p-8">
+        <div className="flex min-h-[420px] items-center justify-center rounded-2xl dark-glass p-8">
           <motion.div
             key={active}
             initial={{ opacity: 0, y: 24, scale: 0.96 }}

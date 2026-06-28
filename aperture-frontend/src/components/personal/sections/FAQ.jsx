@@ -14,17 +14,17 @@ export function FAQ() {
       <div className="container mx-auto grid grid-cols-1 gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <Reveal>
-            <span className="eyebrow text-cocoa-soft">FAQ</span>
+            <span className="eyebrow text-white/50">FAQ</span>
           </Reveal>
           <AnimatedHeading
             as="h2"
             text="Good questions."
-            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-cocoa md:text-6xl"
+            className="mt-5 font-display text-4xl font-medium leading-[1.05] text-white md:text-6xl"
           />
         </div>
 
         <div className="lg:col-span-8">
-          <div className="divide-y divide-white/50 overflow-hidden rounded-2xl liquid-glass">
+          <div className="divide-y divide-white/50 overflow-hidden rounded-2xl dark-glass">
             {faqs.map((item, i) => {
               const isOpen = open === i;
               return (
@@ -33,13 +33,13 @@ export function FAQ() {
                     onClick={() => setOpen(isOpen ? -1 : i)}
                     className="flex w-full items-center justify-between gap-4 px-6 py-6 text-left md:px-8"
                   >
-                    <span className="font-display text-xl font-medium text-cocoa md:text-2xl">
+                    <span className="font-display text-xl font-medium text-white md:text-2xl">
                       {item.q}
                     </span>
                     <motion.span
                       animate={{ rotate: isOpen ? 45 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cocoa/20 text-cocoa"
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 text-white"
                     >
                       <Plus className="h-4 w-4" />
                     </motion.span>
@@ -53,7 +53,7 @@ export function FAQ() {
                         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <p className="px-6 pb-7 text-base leading-relaxed text-cocoa-soft md:px-8 md:pr-16">
+                        <p className="px-6 pb-7 text-base leading-relaxed text-white/50 md:px-8 md:pr-16">
                           {item.a}
                         </p>
                       </motion.div>
