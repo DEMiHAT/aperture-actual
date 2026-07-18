@@ -8,7 +8,8 @@ import { StartProjectButton } from '@/components/ui/StartProject';
 import { ModeToggle } from '@/components/personal/ModeToggle';
 
 const links = [
-  { name: 'Services', href: '#services' },
+  { name: 'Products', href: '/products' },
+  { name: 'Custom Solutions', href: '/custom-solutions' },
   { name: 'Industries', href: '/industries' },
   { name: 'Ecosystem', href: '#ecosystem' },
   { name: 'Process', href: '#process' },
@@ -54,7 +55,10 @@ export function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden items-center gap-9 md:flex">
+            {/* Seven items — one of them 16 characters — no longer fit beside the
+                logo and CTA at the old md breakpoint, so the inline nav starts at
+                xl and relaxes back to the original gap-9 at 2xl. */}
+            <nav className="hidden items-center gap-6 xl:flex 2xl:gap-9">
               {links.map((link) => (
                 <Link
                   key={link.name}
@@ -67,14 +71,14 @@ export function Navbar() {
             </nav>
 
             {/* Desktop CTA + Mode switch */}
-            <div className="hidden items-center gap-5 md:flex">
+            <div className="hidden items-center gap-5 xl:flex">
               <ModeToggle variant="enterprise" />
               <StartProjectButton size="sm" label="Start Project" />
             </div>
 
             {/* Mobile Toggle */}
             <button
-              className="relative z-10 p-2 text-ink md:hidden"
+              className="relative z-10 p-2 text-ink xl:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -92,7 +96,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-b border-line bg-paper md:hidden"
+            className="overflow-hidden border-b border-line bg-paper xl:hidden"
           >
             <div className="container mx-auto flex flex-col gap-1 px-6 py-6">
               {/* Mode switch — full width, top of mobile menu */}
