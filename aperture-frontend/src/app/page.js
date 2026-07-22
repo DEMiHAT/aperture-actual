@@ -5,6 +5,7 @@ import { Ecosystem } from "@/components/sections/Ecosystem";
 import { Services } from "@/components/sections/Services";
 import { Process } from "@/components/sections/Process";
 import { Portfolio } from "@/components/sections/Portfolio";
+import { Projects } from "@/components/sections/Projects";
 import { FAQ } from "@/components/sections/FAQ";
 import { CalendlyEmbed } from "@/components/sections/CalendlyEmbed";
 
@@ -18,6 +19,7 @@ export default function Home() {
       <Services />
       <Process />
       <Portfolio />
+      <Projects />
       <FAQ />
       <CalendlyEmbed />
     </>
