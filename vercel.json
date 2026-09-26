@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm ci --prefix aperture-frontend",
+  "buildCommand": "npm run build --prefix aperture-frontend",
+  "outputDirectory": "aperture-frontend/dist",
+  "rewrites": [
+    {
+      "source": "/((?!assets/|brand/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

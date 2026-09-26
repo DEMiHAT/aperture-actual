@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aperture showcase
 
-## Getting Started
+Standalone frontend copied from selected Beacon/Aperture source screens. The source repository the original Beacon repository is read-only reference material and is not used at runtime.
 
-First, run the development server:
+## Run
 
-```bash
+```sh
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://127.0.0.1:8081. `npm run build` type-checks and creates `dist/`.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Tours
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`/beacon` offers Student and Faculty automatic walkthroughs. Each starts with one selection and advances on its own. Pause, replay, restart and exit are available. Camera movement respects reduced-motion preferences. A background tab pauses playback.
 
-## Learn More
+The copied student Dashboard, Assessment History, Analytics and faculty Dashboard, Submissions and Analytics components use local fixtures through presentation-only API adapters. Session setup and coding scenes are presentation adaptations of the repo's controls. No login, backend, camera, real student data, API credentials, or production actions are included. All sample people and results are fictional.
 
-To learn more about Next.js, take a look at the following resources:
+The header masks only the legal suffix in the supplied logo; the footer retains the full supplied lockup.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The existing `aperture-frontend` project directory is preserved. Vercel configuration overrides the old Next.js preset with Vite and serves `dist`. A repository-root configuration also supports projects whose root directory is the repository itself. Both support direct navigation to `/beacon` and its tour query parameters.
