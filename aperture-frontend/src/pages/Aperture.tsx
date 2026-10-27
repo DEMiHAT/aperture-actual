@@ -337,6 +337,21 @@ function BeaconPreview() {
     </div>
   );
 }
+function DpiitBadge() {
+  return (
+    <a
+      className="ap-dpiit-badge"
+      href="https://www.startupindia.gov.in/content/sih/en/startup-scheme.html"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="DPIIT Recognised startup — learn about Startup India recognition"
+    >
+      <img src="/brand/dpiit-startup-india.png" alt="DPIIT Startup India" width="193" height="75" />
+      <span className="ap-dpiit-label">DPIIT Recognised<span>Startup India</span></span>
+      <ArrowUpRight size={14} aria-hidden="true" />
+    </a>
+  );
+}
 function Hero() {
   return (
     <section className="ap-hero">
@@ -357,6 +372,7 @@ function Hero() {
             Talk to us <ArrowRight size={15} />
           </a>
         </div>
+        <DpiitBadge />
       </Reveal>
       <Reveal className="ap-preview-wrap">
         <BeaconPreview />
@@ -1140,6 +1156,7 @@ function CompanySection() {
             </a>
           </div>
         </div>
+        <DpiitBadge />
         <div className="ap-company-byline">
           <span>Aperture Intelligence · India</span>
           <span>
@@ -1195,6 +1212,7 @@ function Footer() {
             <Brand />
           </a>
           <p className="ap-tagline">DECOUPLING HUMAN ERROR.</p>
+          <DpiitBadge />
         </div>
         <div>
           <span>PRODUCT</span>

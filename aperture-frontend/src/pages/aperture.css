@@ -2264,3 +2264,35 @@ html:has(.ap-site) {
     font-size: 9px;
   }
 }
+
+/* Keep the official government artwork unaltered on a white surface. */
+.ap-site .ap-dpiit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 100%;
+  margin-top: 32px;
+  padding: 10px 16px 10px 8px;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  text-align: left;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.ap-site .ap-dpiit-badge:hover { border-color: #999; box-shadow: 0 4px 16px #00000008; }
+.ap-site .ap-dpiit-badge:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
+.ap-site .ap-dpiit-badge img { width: 145px; height: auto; flex-shrink: 0; object-fit: contain; }
+.ap-site .ap-dpiit-label { border-left: 1px solid #e3e3e3; padding-left: 16px; font-family: inherit; font-size: 12px; font-weight: 500; line-height: 1.5; white-space: nowrap; }
+.ap-site .ap-dpiit-label > span { display: block; font-size: 10px; font-weight: 400; color: #666; margin-top: 2px; }
+.ap-site .ap-dpiit-badge > svg { flex-shrink: 0; color: #666; }
+.ap-site .ap-footer .ap-dpiit-badge { gap: 10px; padding-right: 10px; margin-top: 20px; }
+.ap-site .ap-footer .ap-dpiit-badge img { width: 110px; }
+.ap-site .ap-footer .ap-dpiit-label { padding-left: 10px; font-size: 11px; }
+.ap-site .ap-footer .ap-dpiit-badge > svg { display: none; }
+@media (max-width: 480px) {
+  .ap-site .ap-dpiit-badge { gap: 10px; padding-right: 10px; }
+  .ap-site .ap-dpiit-badge img { width: 125px; }
+  .ap-site .ap-dpiit-label { padding-left: 10px; font-size: 11px; }
+}
