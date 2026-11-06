@@ -13,6 +13,7 @@ import {
   ShieldCheck,
   X,
 } from "lucide-react";
+import AgenticBuildExperience from "@/components/AgenticBuildExperience";
 import { BeaconLogo } from "@/components/BeaconLogo";
 import "./aperture.css";
 
@@ -1242,26 +1243,87 @@ function Footer() {
   );
 }
 export default function Aperture() {
+  const [showAgentBuild, setShowAgentBuild] = useState(true);
+  const [agentBuildProgress, setAgentBuildProgress] = useState(0);
+
+  const agentBuildStage =
+    agentBuildProgress < 12
+      ? 0
+      : agentBuildProgress < 27
+        ? 1
+        : agentBuildProgress < 43
+          ? 2
+          : agentBuildProgress < 58
+            ? 3
+            : agentBuildProgress < 76
+              ? 4
+              : agentBuildProgress < 94
+                ? 5
+                : 6;
+
+  useEffect(() => {
+    if (!showAgentBuild) return;
+    const previousOverflow = document.body.style.overflow;
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [showAgentBuild]);
+
+  const replayAgentBuild = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setAgentBuildProgress(0);
+    setShowAgentBuild(true);
+  };
+
   return (
-    <div className="ap-site">
-      <a className="ap-skip" href="#main">
-        Skip to content
-      </a>
-      <Navbar />
-      <main id="main">
-        <Hero />
-        <ProblemSection />
-        <BeaconSection />
-        <AudienceSection />
-        <IntelligenceLoop />
-        <CapabilityGrid />
-        <TechnologyArchitecture />
-        <ApertureDifference />
-        <CompanySection />
-        <VisionSection />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </div>
+    <>
+      {showAgentBuild && (
+        <AgenticBuildExperience
+          onProgress={setAgentBuildProgress}
+          onComplete={() => {
+            setAgentBuildProgress(100);
+            setShowAgentBuild(false);
+          }}
+        />
+      )}
+      <div
+        className={`ap-site ${showAgentBuild ? `ap-site-building ap-build-stage-${agentBuildStage}` : ""}`}
+        data-build-stage={showAgentBuild ? agentBuildStage : undefined}
+        aria-hidden={showAgentBuild || undefined}
+        {...(showAgentBuild ? { inert: "" } : {})}
+      >
+        <a className="ap-skip" href="#main">
+          Skip to content
+        </a>
+        <Navbar />
+        <main id="main">
+          <Hero />
+          <ProblemSection />
+          <BeaconSection />
+          <AudienceSection />
+          <IntelligenceLoop />
+          <CapabilityGrid />
+          <TechnologyArchitecture />
+          <ApertureDifference />
+          <CompanySection />
+          <VisionSection />
+          <FinalCTA />
+        </main>
+        <Footer />
+        {!showAgentBuild && (
+          <button
+            className="abe-replay-dock"
+            type="button"
+            onClick={replayAgentBuild}
+            aria-label="Replay the multi-agent website build"
+          >
+            <span aria-hidden="true" />
+            Replay agent build
+          </button>
+        )}
+      </div>
+    </>
   );
 }

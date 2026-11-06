@@ -7,6 +7,135 @@
   overflow: clip;
   --ap-muted: #787878;
 }
+.ap-site-building {
+  pointer-events: none;
+  user-select: none;
+  min-height: 100vh;
+  overflow-anchor: none;
+}
+.ap-site-building::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  background-image:
+    linear-gradient(#11111108 1px, transparent 1px),
+    linear-gradient(90deg, #11111108 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, #000 0 82%, transparent 100%);
+}
+.ap-site-building .ap-nav,
+.ap-site-building .ap-hero .ap-eyebrow,
+.ap-site-building .ap-hero h1,
+.ap-site-building .ap-hero > div:first-child > p,
+.ap-site-building .ap-hero > div:first-child > .ap-actions,
+.ap-site-building .ap-hero > div:first-child > .ap-dpiit-badge,
+.ap-site-building .ap-preview-wrap,
+.ap-site-building main > section:not(.ap-hero),
+.ap-site-building .ap-footer {
+  opacity: 0 !important;
+  transform: translateY(16px) scale(0.985) !important;
+  filter: blur(7px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.65s ease !important;
+}
+.ap-build-stage-1 .ap-nav,
+.ap-build-stage-2 .ap-nav,
+.ap-build-stage-3 .ap-nav,
+.ap-build-stage-4 .ap-nav,
+.ap-build-stage-5 .ap-nav,
+.ap-build-stage-6 .ap-nav,
+.ap-build-stage-2 .ap-hero .ap-eyebrow,
+.ap-build-stage-2 .ap-hero h1,
+.ap-build-stage-3 .ap-hero .ap-eyebrow,
+.ap-build-stage-3 .ap-hero h1,
+.ap-build-stage-4 .ap-hero .ap-eyebrow,
+.ap-build-stage-4 .ap-hero h1,
+.ap-build-stage-5 .ap-hero .ap-eyebrow,
+.ap-build-stage-5 .ap-hero h1,
+.ap-build-stage-6 .ap-hero .ap-eyebrow,
+.ap-build-stage-6 .ap-hero h1,
+.ap-build-stage-3 .ap-hero > div:first-child > p,
+.ap-build-stage-3 .ap-hero > div:first-child > .ap-actions,
+.ap-build-stage-3 .ap-hero > div:first-child > .ap-dpiit-badge,
+.ap-build-stage-4 .ap-hero > div:first-child > p,
+.ap-build-stage-4 .ap-hero > div:first-child > .ap-actions,
+.ap-build-stage-4 .ap-hero > div:first-child > .ap-dpiit-badge,
+.ap-build-stage-5 .ap-hero > div:first-child > p,
+.ap-build-stage-5 .ap-hero > div:first-child > .ap-actions,
+.ap-build-stage-5 .ap-hero > div:first-child > .ap-dpiit-badge,
+.ap-build-stage-6 .ap-hero > div:first-child > p,
+.ap-build-stage-6 .ap-hero > div:first-child > .ap-actions,
+.ap-build-stage-6 .ap-hero > div:first-child > .ap-dpiit-badge,
+.ap-build-stage-4 .ap-preview-wrap,
+.ap-build-stage-5 .ap-preview-wrap,
+.ap-build-stage-6 .ap-preview-wrap,
+.ap-build-stage-5 main > section:not(.ap-hero),
+.ap-build-stage-5 .ap-footer,
+.ap-build-stage-6 main > section:not(.ap-hero),
+.ap-build-stage-6 .ap-footer {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none;
+}
+.ap-build-stage-1 .ap-nav,
+.ap-build-stage-2 .ap-hero h1,
+.ap-build-stage-3 .ap-hero > div:first-child > .ap-actions,
+.ap-build-stage-4 .ap-preview-wrap {
+  animation: ap-build-target 1.2s ease both;
+}
+@keyframes ap-build-target {
+  0% {
+    box-shadow: 0 0 0 1px #8eb83b, 0 0 0 8px #8eb83b12;
+  }
+  100% {
+    box-shadow: 0 0 0 1px transparent, 0 0 0 8px transparent;
+  }
+}
+.abe-replay-dock {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 45;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid #d9d9d9;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #3f3f3f;
+  box-shadow: 0 8px 30px #00000012;
+  backdrop-filter: blur(14px);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.abe-replay-dock span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #72a91d;
+  box-shadow: 0 0 0 4px #72a91d18;
+}
+.abe-replay-dock:hover {
+  color: #111;
+  border-color: #aaa;
+  transform: translateY(-2px);
+}
+@media (max-width: 700px) {
+  .abe-replay-dock {
+    left: 12px;
+    bottom: 12px;
+    min-height: 34px;
+    padding: 0 11px;
+    font-size: 9px;
+  }
+}
 .ap-site * {
   box-sizing: border-box;
 }
