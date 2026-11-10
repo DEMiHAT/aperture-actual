@@ -1121,6 +1121,57 @@ function ApertureDifference() {
     </section>
   );
 }
+function EcosystemRecognition() {
+  return (
+    <section className="ap-section ap-ecosystem" aria-labelledby="ecosystem-title">
+      <Reveal>
+        <div className="ap-ecosystem-topline">
+          <span className="ap-overline">ECOSYSTEM &amp; RECOGNITION</span>
+          <span className="ap-ecosystem-status">
+            <i aria-hidden="true" /> Official Programme Member
+          </span>
+        </div>
+        <div className="ap-ecosystem-grid">
+          <div>
+            <h2 id="ecosystem-title">
+              Building with the
+              <br />
+              <span>right foundations.</span>
+            </h2>
+            <p>
+              Aperture Intelligence is officially accepted into the Zoho for
+              Startups Programme—supporting the operational foundation behind
+              the work we are building.
+            </p>
+          </div>
+          <a
+            className="ap-zoho-recognition"
+            href="https://www.zoho.com/startups/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Learn about the Zoho for Startups Programme"
+          >
+            <span className="ap-zoho-card-label">
+              <i aria-hidden="true" /> Official recognition
+            </span>
+            <span className="ap-zoho-logo-wrap">
+              <img
+                src="/brand/zoho-logo.png"
+                alt="Zoho"
+                className="ap-zoho-logo"
+              />
+            </span>
+            <span className="ap-zoho-copy">
+              <strong>Zoho for Startups</strong>
+              <span>Official Programme Member</span>
+            </span>
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </a>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
 function CompanySection() {
   return (
     <section className="ap-section ap-company" id="company">
@@ -1307,6 +1358,7 @@ export default function Aperture() {
           <CapabilityGrid />
           <TechnologyArchitecture />
           <ApertureDifference />
+          <EcosystemRecognition />
           <CompanySection />
           <VisionSection />
           <FinalCTA />
